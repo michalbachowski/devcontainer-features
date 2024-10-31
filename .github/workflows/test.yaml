@@ -13,8 +13,12 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - bash-prompt
+          - bash-sensible
+          - custom-ca-cert
+          - scalafmt-native
+          - shell-local
+          - snyk-cli
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -34,8 +38,12 @@ jobs:
     strategy:
       matrix:
         features:
-          - color
-          - hello
+          - bash-prompt
+          - bash-sensible
+          - custom-ca-cert
+          - scalafmt-native
+          - shell-local
+          - snyk-cli
     steps:
       - uses: actions/checkout@v4
 
