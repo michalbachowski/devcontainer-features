@@ -1,0 +1,10 @@
+{
+    "older-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "snyk-cli": {
+                "version": "v1.1293.1"
+            }
+        }
+    }
+}

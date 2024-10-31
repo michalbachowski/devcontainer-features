@@ -1,0 +1,13 @@
+{
+    "name": "Snyk (via curl)",
+    "id": "snyk",
+    "version": "0.0.1",
+    "description": "Installs snyk-cli by downloading artifact from GitHub",
+    "options": {
+        "version": {
+            "default": "v1.1294.0",
+            "description": "Select the version to install.",
+            "type": "string"
+        }
+    }
+}
