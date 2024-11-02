@@ -1,0 +1,10 @@
+{
+    "name": "Add sensible bash defaults",
+    "id": "bash-sensible",
+    "version": "0.0.1",
+    "description": "Copies the bash-sensible (static copy of https://github.com/mrzool/bash-sensible) over to container and augments .bashrc with a code to load the config",
+    "options": {},
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ]
+}

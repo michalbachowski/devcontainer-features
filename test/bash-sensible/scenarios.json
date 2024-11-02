@@ -1,0 +1,9 @@
+{
+    "non-root-user": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "remoteUser": "vscode",
+        "features": {
+            "bash-sensible": {}
+        }
+    }
+}
