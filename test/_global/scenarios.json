@@ -1,13 +1,10 @@
 {
-    "color_and_hello": {
+    "prompt-and-sensible": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "remoteUser": "root",
         "features": {
-            "color": {
-                "favorite": "purple"
-            },
-            "hello": {
-                "greeting": "Greetings"
-            }
+            "bash-prompt": {},
+            "bash-sensible": {}
         }
     }
 }
