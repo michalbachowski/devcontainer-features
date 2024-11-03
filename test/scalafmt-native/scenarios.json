@@ -1,0 +1,10 @@
+{
+    "older-version": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "scalafmt-native": {
+                "version": "3.8.2"
+            }
+        }
+    }
+}

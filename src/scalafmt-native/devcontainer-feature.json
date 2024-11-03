@@ -1,0 +1,13 @@
+{
+    "name": "scalafmt-native (via curl)",
+    "id": "scalafmt-native",
+    "version": "0.0.1",
+    "description": "Installs scalafmt-native by downloading artifact from GitHub",
+    "options": {
+        "version": {
+            "default": "3.8.3",
+            "description": "Select the version to install (skip the 'v' prefix!).",
+            "type": "string"
+        }
+    }
+}
