@@ -1,4 +1,4 @@
-source test_scripts.bash
+source test_scripts.sh
 
 SCRIPT_PATH=/usr/local/bin/scalafmt-native
 VERSION="${VERSION:-3.8.3}"
