@@ -29,26 +29,8 @@
 #                   --skip-scenarios   \
 #                   --base-image mcr.microsoft.com/devcontainers/baseubuntu \
 #                   /workspaces/devcontainer-features
-
-set -e
-
-# Optional: Import test library bundled with the devcontainer CLI
-# See https://github.com/devcontainers/cli/blob/HEAD/docs/features/test.md#dev-container-features-test-lib
-# Provides the 'check' and 'reportResults' commands.
-source dev-container-features-test-lib
-
-script_name=snyk
-version=1.1293.1
-script_path=/usr/local/bin/$script_name
-
-# Feature-specific tests
-# The 'check' command comes from the dev-container-features-test-lib. Syntax is...
-# check <LABEL> <cmd> [args...]
-
-check "binary exists" bash -c "test -x $script_path && echo exists"
-check "binary is owned by root:root" bash -c "ls -l $script_path | grep -q 'root root'"
-check "binary is available on PATH" bash -c "command -v $script_name >/dev/null || exit 1"
-check "binary is in correct version" bash -c "$script_name --version | grep -q $version"
+VERSION=1.1293.1
+source _common_tests.sh
 
 # Report results
 # If any of the checks above exited with a non-zero exit code, the test will fail.

@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
+DEST=/usr/local/bin/snyk
+
+echo "Activating feature [snyk-cli]"
+
+if [ -f $DEST ]; then
+    echo "Script exists, skipping"
+    exit 0
+fi
+
 sysarch=$(uname -m)
 
 case $sysarch in \
@@ -10,7 +19,6 @@ case $sysarch in \
     *) echo "\n========================\n\nUnkown platform $TARGETARCH. Update the install.sh to support it.\n\n========================\n" && exit 1 ;; \
 esac
 
-dest=/usr/local/bin/snyk
 url=https://github.com/snyk/cli/releases/download/${VERSION}/snyk-${snyk_arch}
 
 status=$(curl \
@@ -18,14 +26,14 @@ status=$(curl \
     --location \
     --write-out "%{http_code}" \
     --compressed \
-    --output $dest \
+    --output $DEST \
     $url)
 
-if [ "$status" -ne 200 ] || [ ! -f $dest ]; then
+if [ "$status" -ne 200 ] || [ ! -f $DEST ]; then
     echo "The snyk binary could not be downloaded from [$url; HTTP status: $status], please fix it!"
     exit 1
 fi
 
-chmod +x $dest
+chmod +x $DEST
 
 echo 'Done!'
