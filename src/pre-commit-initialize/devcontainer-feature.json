@@ -1,0 +1,17 @@
+{
+    "name": "Fancy Bash prompt",
+    "id": "bash-prompt",
+    "version": "0.0.1",
+    "description": "Enables fancy bash prompt for selected users.",
+    "onCreateCommand": "cd ${containerWorkspaceFolder} && pre-commit install --install-hooks --overwrite --allow-missing-config",
+    "installsAfter": [
+        "ghcr.io/cirolosapio/devcontainers-features/alpine-git",
+        "ghcr.io/devcontainers/features/git",
+        "ghcr.io/devcontainers-contrib/features/pre-commit",
+        "ghcr.io/gvatsal60/dev-container-features/pre-commit",
+        "ghcr.io/prulloac/devcontainer-features/pre-commit"
+    ],
+    "containerEnv": {
+		"PATH": "/usr/local/py-utils/bin/:${PATH}"
+	}
+}
