@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This test file will be executed against an auto-generated devcontainer.json that
-# includes the 'snyk-cli' Feature with no options.
+# includes the 'scalafmt-native' Feature with no options.
 #
 # For more information, see: https://github.com/devcontainers/cli/blob/main/docs/features/test.md
 #
@@ -9,7 +9,7 @@
 # {
 #    "image": "<..some-base-image...>",
 #    "features": {
-#      "snyk-cli": {}
+#      "scalafmt-native": {}
 #    },
 #    "remoteUser": "root"
 # }
@@ -23,7 +23,7 @@
 # This test can be run with the following command:
 #
 #    devcontainer features test \ 
-#                   --features snyk-cli   \
+#                   --features scalafmt-native   \
 #                   --remote-user root \
 #                   --skip-scenarios   \
 #                   --base-image mcr.microsoft.com/devcontainers/baseubuntu \
