@@ -13,12 +13,12 @@ jobs:
     strategy:
       matrix:
         features:
-          #- bash-prompt
+          - bash-prompt
           - bash-sensible
-          #- scalafmt-native
-          #- shell-local
-          #- snyk-cli
-          #- zsh-prompt-currenttime
+          - scalafmt-native
+          - shell-local
+          - snyk-cli
+          - zsh-prompt-currenttime
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -84,7 +84,7 @@ jobs:
         features:
           - bash-prompt
           - bash-sensible
-          - custom-ca-cert
+          #- custom-ca-cert
           - pre-commit-initialize
           - scalafmt-native
           - shell-local

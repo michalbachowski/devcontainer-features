@@ -29,8 +29,8 @@
 #                   --base-image mcr.microsoft.com/devcontainers/baseubuntu \
 #                   /workspaces/devcontainer-features
 
-$HAS_BASH="0"
-$HAS_ZSH="0"
+HAS_BASH="0"
+HAS_ZSH="0"
 
 source _common_tests.sh
 
