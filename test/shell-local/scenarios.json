@@ -1,0 +1,28 @@
+{
+    "non-root-user-both-scripts": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "remoteUser": "vscode",
+        "features": {
+            "shell-local": {
+                "bash_script_path": "script.bash",
+                "zsh_script_path": "script.zsh"
+            }
+        }
+    },
+    "only-bash": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "shell-local": {
+                "bash_script_path": "script.bash"
+            }
+        }
+    },
+    "only-zsh": {
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "features": {
+            "shell-local": {
+                "zsh_script_path": "script.zsh"
+            }
+        }
+    }
+}
