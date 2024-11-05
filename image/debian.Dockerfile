@@ -28,10 +28,3 @@ RUN \
 #
 ENV \
     SSL_CERT_FILE=/envcert.pem
-
-#
-# init test git dir
-#
-RUN \
-    mkdir -p /devcontainer-feature/michalbachowski/test-git-repo && \
-    git init .
