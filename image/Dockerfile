@@ -4,3 +4,5 @@ ENV SSL_CERT_FILE=/envcert
 
 RUN mkdir -p /devcontainer-feature/michalbachowski/test-git-repo && \
     git init .
+
+RUN useradd -ms /bin/bash testuser

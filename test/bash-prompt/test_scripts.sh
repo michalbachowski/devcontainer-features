@@ -9,10 +9,18 @@ function test_shell_features
 {
     script_file_name="$1"
     user_shell="$2"
-    user="${3:-root}"
+
+
+    if [ "$NON_ROOT_USER" = "1" ]; then
+        USER=testuser
+        HOMEDIR=/home/$USER
+    else
+        USER=root
+        HOMEDIR=/root
+    fi
 
     COMMON_DIR=/devcontainer-feature/michalbachowski
-    HOMEDIR="$(test $user = node && echo /home/node || echo /root)"
+
     script_file_path=$COMMON_DIR/$script_file_name
     rc_file_name="${user_shell}rc"
     export rc_file_path=$COMMON_DIR/$rc_file_name
@@ -22,15 +30,15 @@ function test_shell_features
     # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
     # check <LABEL> <cmd> [args...]
 
-    check "Logging" bash -c "ls -la ${script_file_path} ${rc_file_path} ${user_rc_file_path}; echo $user; id -u $user; cat /etc/passwd; exit 0"
+    check "Logging" bash -c "ls -la ${script_file_path} ${rc_file_path} ${user_rc_file_path}; echo -n $USER' : '; id -u $USER; exit 0"
     check "The $script_file_name [$script_file_path] file exists" $user_shell -c "test -f $script_file_path"
-    check "The $script_file_name [$script_file_path] file is owned by the [$user] user" $user_shell -c "stat -c "%U" $script_file_path | grep -E '^$user$'"
+    check "The $script_file_name [$script_file_path] file is owned by the [$USER] user" $user_shell -c "stat -c "%U" $script_file_path | grep -E '^${USER}\$'"
     check "The $rc_file_name [$rc_file_path] file exists" $user_shell -c "test -f $rc_file_path"
-    check "The $rc_file_name [$rc_file_path] file exists is owned by the [$user] user" $user_shell -c "stat -c "%U" $rc_file_path | grep -E '^$user$'"
+    check "The $rc_file_name [$rc_file_path] file exists is owned by the [$USER] user" $user_shell -c "stat -c "%U" $rc_file_path | grep -E '^${USER}\$'"
     check "The $rc_file_name [$rc_file_path] file contains a reference to the $script_file_name [$script_file_path] file" $user_shell -c "cat $rc_file_path | grep '$script_file_path' | grep source"
-    check "The user's [$user] $rc_file_name [$user_rc_file_path] file exists" $user_shell -c "test -f $user_rc_file_path"
-    check "The user's [$user] $rc_file_name [$user_rc_file_path] file exists is owned by the [$user] user" $user_shell -c "stat -c "%U" $user_rc_file_path | grep -E '^$user$'"
-    check "The user's [$user] $rc_file_name [$user_rc_file_path] file contains a reference to the feature's $rc_file_name [$rc_file_path] file" $user_shell -c "cat '$user_rc_file_path' | grep '$rc_file_path' | grep source"
+    check "The user's [$USER] $rc_file_name [$user_rc_file_path] file exists" $user_shell -c "test -f $user_rc_file_path"
+    check "The user's [$USER] $rc_file_name [$user_rc_file_path] file exists is owned by the [$USER] user" $user_shell -c "stat -c "%U" $user_rc_file_path | grep -E '^${USER}\$'"
+    check "The user's [$USER] $rc_file_name [$user_rc_file_path] file contains a reference to the feature's $rc_file_name [$rc_file_path] file" $user_shell -c "cat '$user_rc_file_path' | grep '$rc_file_path' | grep source"
 }
 
 function test_binary_feature
