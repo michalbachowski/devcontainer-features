@@ -1,6 +1,6 @@
 {
     "older-version": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "image": "michalbachowski/devcontainer-test-ubuntu:v1",
         "features": {
             "snyk-cli": {
                 "version": "v1.1293.1"

@@ -1,7 +1,7 @@
 {
     "non-root-user-both-scripts": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-        "remoteUser": "vscode",
+        "image": "michalbachowski/devcontainer-test-ubuntu:v1",
+        "remoteUser": "testuser",
         "features": {
             "shell-local": {
                 "bash_script_path": "script.bash",
@@ -10,7 +10,7 @@
         }
     },
     "only-bash": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "image": "michalbachowski/devcontainer-test-ubuntu:v1",
         "features": {
             "shell-local": {
                 "bash_script_path": "script.bash"
@@ -18,7 +18,7 @@
         }
     },
     "only-zsh": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "image": "michalbachowski/devcontainer-test-ubuntu:v1",
         "features": {
             "shell-local": {
                 "zsh_script_path": "script.zsh"

@@ -11,8 +11,8 @@ if -f $INSTALL_LOCATION; then
     echo "The [scalafmt-native] binary exists, skipping installation."
 fi
 
-if ! command -v curl; then
-    . ./library_scripts.bash
+if ! command -v curl >/dev/null; then
+    . ./library_scripts.sh
 
     # nanolayer is a cli utility which keeps container layers as small as possible
     # source code: https://github.com/devcontainers-contrib/nanolayer

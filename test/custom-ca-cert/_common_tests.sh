@@ -9,7 +9,7 @@ function check_env_is_set
 {
     env_name="$1"
     path="${2:-$ENV_FILE_PATH}"
-    cert="${3:-${CERT_PATH:-/test/cert}}"
+    cert="${3:-${CERT_PATH:-/optcert.pem}}"
     check "The [$env_name] prop is set in the [$path] and contains [$cert] as a value" bash -c "cat $path | grep $env_name | grep -q '$cert'"
 
     # for environment variables, check effective values

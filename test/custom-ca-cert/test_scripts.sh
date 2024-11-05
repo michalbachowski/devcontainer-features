@@ -13,7 +13,7 @@ function test_shell_features
 
 
     if [ "$NON_ROOT_USER" = "1" ]; then
-        USER=vscode
+        USER=testuser
         HOMEDIR=/home/$USER
     else
         USER=root

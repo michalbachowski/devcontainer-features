@@ -76,5 +76,3 @@ function add_feature_shell_file
 
     echo 'Done!'
 }
-
-. ./ensure_nanolayer.sh
