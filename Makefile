@@ -10,7 +10,7 @@ sync-files:
 		./$(IN) \
 		-maxdepth 1 \
 		-type d \
-		-not -wholename './$(FROM)' \
+		-not -wholename './$(IN)' \
 		-not -wholename './$(IN)/$(FROM)' \
 		-exec cp ./$(IN)/$(FROM)/$(FILE) {} \;
 
