@@ -1,8 +1,7 @@
 {
     "non-root-user": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-        "remoteUser": "vscode",
-        "updateRemoteUserUID": true,
+        "image": "node:lts-slim",
+        "remoteUser": "node",
         "features": {
             "bash-prompt": {}
         }

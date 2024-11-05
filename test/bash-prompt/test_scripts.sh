@@ -12,7 +12,7 @@ function test_shell_features
     user="${3:-root}"
 
     COMMON_DIR=/devcontainer-feature/michalbachowski
-    HOMEDIR="$(test $user = vscode && echo /home/vscode || echo /root)"
+    HOMEDIR="$(test $user = node && echo /home/node || echo /root)"
     script_file_path=$COMMON_DIR/$script_file_name
     rc_file_name="${user_shell}rc"
     export rc_file_path=$COMMON_DIR/$rc_file_name
