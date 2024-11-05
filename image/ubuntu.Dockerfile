@@ -10,7 +10,10 @@ RUN \
 # install missing packages
 #
 COPY \
-    ensure_nanolayer.sh /
+    ensure_nanolayer.sh \
+    envcert.pem \
+    optcert.pem \
+    /
 
 RUN \
     set +u; \
@@ -24,7 +27,7 @@ RUN \
 # specify fake cert
 #
 ENV \
-    SSL_CERT_FILE=/envcert
+    SSL_CERT_FILE=/envcert.pem
 
 #
 # init test git dir
