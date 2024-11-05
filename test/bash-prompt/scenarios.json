@@ -2,6 +2,7 @@
     "non-root-user": {
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "remoteUser": "vscode",
+        "updateRemoteUserUID": false,
         "features": {
             "bash-prompt": {}
         }
