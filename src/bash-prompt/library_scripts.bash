@@ -34,6 +34,7 @@ function add_feature_shell_file
         exit 0
     fi
 
+    echo "${_REMOTE_USER} : $(id -u $_REMOTE_USER)"
     # create common dir
     mkdir -p $COMMON_DIR
     chown -R $_REMOTE_USER $COMMON_DIR

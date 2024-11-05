@@ -22,7 +22,7 @@ function test_shell_features
     # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
     # check <LABEL> <cmd> [args...]
 
-    check "Logging" bash -c "ls -la ${script_file_path} ${rc_file_path} ${user_rc_file_path}; id -u $user; cat /etc/passwd; exit 0"
+    check "Logging" bash -c "ls -la ${script_file_path} ${rc_file_path} ${user_rc_file_path}; echo $user; id -u $user; cat /etc/passwd; exit 0"
     check "The $script_file_name [$script_file_path] file exists" $user_shell -c "test -f $script_file_path"
     check "The $script_file_name [$script_file_path] file is owned by the [$user] user" $user_shell -c "stat -c "%U" $script_file_path | grep -E '^$user$'"
     check "The $rc_file_name [$rc_file_path] file exists" $user_shell -c "test -f $rc_file_path"
