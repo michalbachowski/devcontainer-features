@@ -5,7 +5,9 @@ URL=https://raw.githubusercontent.com/scalameta/scalafmt/v${VERSION}/bin/install
 INSTALL_LOCATION=/usr/local/bin/scalafmt-native
 INSTALLER_LOCATION=/tmp/install-scalafmt-native.sh
 
-if command -v scalafmt-native; then
+echo "Activating feature [scalafmt-native]"
+
+if -f $INSTALL_LOCATION; then
     echo "The [scalafmt-native] binary exists, skipping installation."
 fi
 
