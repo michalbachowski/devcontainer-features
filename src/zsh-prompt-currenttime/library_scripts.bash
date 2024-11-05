@@ -46,24 +46,32 @@ function add_feature_shell_file
 
     # if the custom script exists, copy it to the common dir
     if [ -f "$custom_script_path" ]; then
+        echo "Copying [$custom_script_path] to [$DEST_SCRIPT_PATH]"
         cp "$custom_script_path" "$DEST_SCRIPT_PATH"
         chown $_REMOTE_USER "$DEST_SCRIPT_PATH"
         chmod 0666 "$DEST_SCRIPT_PATH"
+        echo "The details of the [$DEST_SCRIPT_PATH] are: $(ls -la $DEST_SCRIPT_PATH)"
     else
         echo "The [$custom_script_path] file does not exists."
         echo "Moving forward, since it might be mounted during container run."
     fi
 
     # source custom script in custom <shell>rc
+    echo "Adding the call (source) of the [$DEST_SCRIPT_PATH] custom script to the [$DEST_SHELLRC_PATH] common shell config file."
     echo "[[ \"\$-\" = *i* ]] && [ -f '$DEST_SCRIPT_PATH' ] && source '$DEST_SCRIPT_PATH'" >> $DEST_SHELLRC_PATH
     chown $_REMOTE_USER "$DEST_SHELLRC_PATH"
     chmod 0666 "$DEST_SHELLRC_PATH"
+    echo "The details of the [$DEST_SHELLRC_PATH] are: $(ls -la $DEST_SHELLRC_PATH)"
 
     # source custom <shell>rc in the user's .<shell>rc
     if [ ! -f "$user_shellrc_path" ] || ! cat "$user_shellrc_path" | grep "$DEST_SHELLRC_PATH" | grep -q source; then
+        echo "Adding the call (source) of the [$DEST_SHELLRC_PATH] common shell config to the [$user_shellrc_path] user shell config file."
         echo "[ -f '$DEST_SHELLRC_PATH' ] && source '$DEST_SHELLRC_PATH'" >> $user_shellrc_path
         chown $_REMOTE_USER "$user_shellrc_path"
         chmod 0666 "$user_shellrc_path"
+        echo "The details of the [$user_shellrc_path] are: $(ls -la $user_shellrc_path)"
+    else
+        echo "The call (source) of the [$DEST_SHELLRC_PATH] common shell config has already been added to the [$user_shellrc_path] user shell config file, skipping."
     fi
 
     echo 'Done!'
