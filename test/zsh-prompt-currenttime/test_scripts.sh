@@ -12,7 +12,7 @@ function test_shell_features
 
 
     if [ "$NON_ROOT_USER" = "1" ]; then
-        USER=testuser
+        USER=vscode
         HOMEDIR=/home/$USER
     else
         USER=root
@@ -30,14 +30,14 @@ function test_shell_features
     # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
     # check <LABEL> <cmd> [args...]
 
-    check "Logging" bash -c "ls -la ${script_file_path} ${rc_file_path} ${user_rc_file_path}; echo -n $USER' : '; id -u $USER; exit 0"
+    check "Logging" bash -c "ls -la ${script_file_path} ${rc_file_path} ${user_rc_file_path}; echo -n $USER' : [UID]='$UID'; [id cmd]='; id -u $USER';  exit 0"
     check "The $script_file_name [$script_file_path] file exists" $user_shell -c "test -f $script_file_path"
-    check "The $script_file_name [$script_file_path] file is owned by the [$USER] user" $user_shell -c "stat -c "%U" $script_file_path | grep -E '^${USER}\$'"
+    check "The $script_file_name [$script_file_path] file is owned by the [root] user" $user_shell -c "test \"$(stat -c '%u' $script_file_path)\" = \"$(id -u root)\" || exit 1"
     check "The $rc_file_name [$rc_file_path] file exists" $user_shell -c "test -f $rc_file_path"
-    check "The $rc_file_name [$rc_file_path] file exists is owned by the [$USER] user" $user_shell -c "stat -c "%U" $rc_file_path | grep -E '^${USER}\$'"
+    check "The $rc_file_name [$rc_file_path] file exists is owned by the [root] user" $user_shell -c "test \"$(stat -c '%u' $rc_file_path)\" = \"$(id -u root)\" || exit 1"
     check "The $rc_file_name [$rc_file_path] file contains a reference to the $script_file_name [$script_file_path] file" $user_shell -c "cat $rc_file_path | grep '$script_file_path' | grep source"
     check "The user's [$USER] $rc_file_name [$user_rc_file_path] file exists" $user_shell -c "test -f $user_rc_file_path"
-    check "The user's [$USER] $rc_file_name [$user_rc_file_path] file exists is owned by the [$USER] user" $user_shell -c "stat -c "%U" $user_rc_file_path | grep -E '^${USER}\$'"
+    check "The user's [$USER] $rc_file_name [$user_rc_file_path] file exists is owned by the [$USER] user" $user_shell -c "test \"\$(whoami)\" = \"$USER\" && test -O $user_rc_file_path || exit 1"
     check "The user's [$USER] $rc_file_name [$user_rc_file_path] file contains a reference to the feature's $rc_file_name [$rc_file_path] file" $user_shell -c "cat '$user_rc_file_path' | grep '$rc_file_path' | grep source"
 }
 

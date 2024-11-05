@@ -8,13 +8,13 @@
         }
     },
     "from_env": {
-        "image": "michalbachowski/devcontainer-test-image:v1",
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "custom-ca-cert": {}
         }
     },
     "from_both": {
-        "image": "michalbachowski/devcontainer-test-image:v1",
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "custom-ca-cert": {
                 "cert_path": "/test/cert"

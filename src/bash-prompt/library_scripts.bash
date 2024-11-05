@@ -9,7 +9,7 @@ function add_feature_shell_file
 
     echo "Activating feature [$feature_name]"
 
-    echo "User: ${_REMOTE_USER}     User home: ${_REMOTE_USER_HOME}"
+    echo "User: ${_REMOTE_USER} [$(id -u $_REMOTE_USER)]     User home: ${_REMOTE_USER_HOME}"
 
     if [  -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
         echo "***********************************************************************************"
@@ -34,10 +34,9 @@ function add_feature_shell_file
         exit 0
     fi
 
-    echo "${_REMOTE_USER} : $(id -u $_REMOTE_USER)"
     # create common dir
     mkdir -p $COMMON_DIR
-    chown -R $_REMOTE_USER $COMMON_DIR
+    chown -R root $COMMON_DIR
     chmod -R 0555 $COMMON_DIR
 
     if [ -z "$custom_script_path" ]; then
@@ -49,8 +48,8 @@ function add_feature_shell_file
     if [ -f "$custom_script_path" ]; then
         echo "Copying [$custom_script_path] to [$DEST_SCRIPT_PATH]"
         cp "$custom_script_path" "$DEST_SCRIPT_PATH"
-        chown $_REMOTE_USER "$DEST_SCRIPT_PATH"
-        chmod 0666 "$DEST_SCRIPT_PATH"
+        chown root "$DEST_SCRIPT_PATH"
+        chmod 0555 "$DEST_SCRIPT_PATH"
         echo "The details of the [$DEST_SCRIPT_PATH] are: $(ls -la $DEST_SCRIPT_PATH)"
     else
         echo "The [$custom_script_path] file does not exists."
@@ -60,8 +59,8 @@ function add_feature_shell_file
     # source custom script in custom <shell>rc
     echo "Adding the call (source) of the [$DEST_SCRIPT_PATH] custom script to the [$DEST_SHELLRC_PATH] common shell config file."
     echo "[[ \"\$-\" = *i* ]] && [ -f '$DEST_SCRIPT_PATH' ] && source '$DEST_SCRIPT_PATH'" >> $DEST_SHELLRC_PATH
-    chown $_REMOTE_USER "$DEST_SHELLRC_PATH"
-    chmod 0666 "$DEST_SHELLRC_PATH"
+    chown root "$DEST_SHELLRC_PATH"
+    chmod 0555 "$DEST_SHELLRC_PATH"
     echo "The details of the [$DEST_SHELLRC_PATH] are: $(ls -la $DEST_SHELLRC_PATH)"
 
     # source custom <shell>rc in the user's .<shell>rc

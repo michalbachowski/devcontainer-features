@@ -1,7 +1,7 @@
 {
     "non-root-user": {
-        "image": "michalbachowski/devcontainer-test-image:v1",
-        "remoteUser": "testuser",
+        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+        "remoteUser": "vscode",
         "features": {
             "bash-prompt": {}
         }
