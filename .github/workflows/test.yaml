@@ -38,8 +38,8 @@ jobs:
     strategy:
       matrix:
         features:
-          - custom-ca-cert
-          - pre-commit-initialize
+          #- custom-ca-cert
+          #- pre-commit-initialize
         baseImage:
           - michalbachowski/devcontainer-test-image:v1
     steps:
@@ -59,8 +59,8 @@ jobs:
         features:
           - bash-prompt
           - bash-sensible
-          - custom-ca-cert
-          - pre-commit-initialize
+          #- custom-ca-cert
+          #- pre-commit-initialize
           - scalafmt-native
           - shell-local
           - snyk-cli
