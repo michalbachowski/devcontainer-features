@@ -1,0 +1,1 @@
+Custom `Docker` image to be used with the tests.
