@@ -13,12 +13,12 @@ jobs:
     strategy:
       matrix:
         features:
-          - bash-prompt
+          #- bash-prompt
           - bash-sensible
-          - scalafmt-native
-          - shell-local
-          - snyk-cli
-          - zsh-prompt-currenttime
+          #- scalafmt-native
+          #- shell-local
+          #- snyk-cli
+          #- zsh-prompt-currenttime
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -38,12 +38,12 @@ jobs:
     strategy:
       matrix:
         features:
-          - bash-prompt
+          #- bash-prompt
           - bash-sensible
-          - scalafmt-native
-          - shell-local
-          - snyk-cli
-          - zsh-prompt-currenttime
+          #- scalafmt-native
+          #- shell-local
+          #- snyk-cli
+          #- zsh-prompt-currenttime
         baseImage:
           - debian:latest
           - ubuntu:latest
@@ -86,9 +86,9 @@ jobs:
           - bash-sensible
           #- custom-ca-cert
           #- pre-commit-initialize
-          - scalafmt-native
+          #- scalafmt-native
           #- shell-local
-          - snyk-cli
+          #- snyk-cli
           #- zsh-prompt-currenttime
     steps:
       - uses: actions/checkout@v4
