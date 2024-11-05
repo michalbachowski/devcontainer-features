@@ -39,10 +39,20 @@ function add_feature_shell_file
     chown -R $_REMOTE_USER $COMMON_DIR
     chmod -R 0555 $COMMON_DIR
 
-    # copy custom script to common dir
-    cp "$custom_script_path" "$DEST_SCRIPT_PATH"
-    chown $_REMOTE_USER "$DEST_SCRIPT_PATH"
-    chmod 0666 "$DEST_SCRIPT_PATH"
+    if [ -z "$custom_script_path" ]; then
+        echo "The custom script path is empty, aborting!"
+        exit 1
+    fi
+
+    # if the custom script exists, copy it to the common dir
+    if [ -f "$custom_script_path" ]; then
+        cp "$custom_script_path" "$DEST_SCRIPT_PATH"
+        chown $_REMOTE_USER "$DEST_SCRIPT_PATH"
+        chmod 0666 "$DEST_SCRIPT_PATH"
+    else
+        echo "The [$custom_script_path] file does not exists."
+        echo "Moving forward, since it might be mounted during container run."
+    fi
 
     # source custom script in custom <shell>rc
     echo "[[ \"\$-\" = *i* ]] && [ -f '$DEST_SCRIPT_PATH' ] && source '$DEST_SCRIPT_PATH'" >> $DEST_SHELLRC_PATH
