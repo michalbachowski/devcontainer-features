@@ -83,7 +83,7 @@ jobs:
       matrix:
         features:
           #- bash-prompt
-          #- bash-sensible
+          - bash-sensible
           #- custom-ca-cert
           #- pre-commit-initialize
           - scalafmt-native
