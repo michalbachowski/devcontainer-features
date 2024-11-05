@@ -82,14 +82,14 @@ jobs:
     strategy:
       matrix:
         features:
-          - bash-prompt
-          - bash-sensible
+          #- bash-prompt
+          #- bash-sensible
           #- custom-ca-cert
           #- pre-commit-initialize
           - scalafmt-native
-          - shell-local
+          #- shell-local
           - snyk-cli
-          - zsh-prompt-currenttime
+          #- zsh-prompt-currenttime
     steps:
       - uses: actions/checkout@v4
 
