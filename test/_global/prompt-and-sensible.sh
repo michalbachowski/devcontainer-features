@@ -30,25 +30,25 @@ USER_RC_FILE_PATH=$HOMEDIR/.$RC_FILE_NAME
 # Feature-specific tests
 # The 'check' command comes from the dev-container-features-test-lib. Syntax is...
 # check <LABEL> <cmd> [args...]
-check "The $PROMPT_FILE_NAME [$PROMPT_FILE_PATH] file exists" bash -c "sudo test -f $PROMPT_FILE_PATH"
-check "The $PROMPT_FILE_NAME [$PROMPT_FILE_PATH] file is owned by the [$USER] user" bash -c "sudo stat -c "%U" $PROMPT_FILE_PATH | grep -q -E '^$USER$'"
-check "The $RC_FILE_NAME [$RC_FILE_PATH] file exists" bash -c "sudo test -f $RC_FILE_PATH"
-check "The $RC_FILE_NAME [$RC_FILE_PATH] file exists is owned by the [$USER] user" bash -c "sudo stat -c "%U" $RC_FILE_PATH | grep -q -E '^$USER$'"
-check "The $RC_FILE_NAME [$RC_FILE_PATH] file contains a reference to the $PROMPT_FILE_NAME [$PROMPT_FILE_PATH] file" bash -c "sudo cat $RC_FILE_PATH | grep '$PROMPT_FILE_PATH' | grep -q source"
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file exists" bash -c "sudo test -f $USER_RC_FILE_PATH"
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file exists is owned by the [$USER] user" bash -c "sudo stat -c "%U" $USER_RC_FILE_PATH | grep -q -E '^$USER$'"
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file contains a reference to the feature's $RC_FILE_NAME [$RC_FILE_PATH] file" bash -c "sudo cat '$USER_RC_FILE_PATH' | grep '$RC_FILE_PATH' | grep -q source"
+check "The $PROMPT_FILE_NAME [$PROMPT_FILE_PATH] file exists" bash -c "test -f $PROMPT_FILE_PATH"
+check "The $PROMPT_FILE_NAME [$PROMPT_FILE_PATH] file is owned by the [$USER] user" bash -c "stat -c "%U" $PROMPT_FILE_PATH | grep -q -E '^$USER$'"
+check "The $RC_FILE_NAME [$RC_FILE_PATH] file exists" bash -c "test -f $RC_FILE_PATH"
+check "The $RC_FILE_NAME [$RC_FILE_PATH] file exists is owned by the [$USER] user" bash -c "stat -c "%U" $RC_FILE_PATH | grep -q -E '^$USER$'"
+check "The $RC_FILE_NAME [$RC_FILE_PATH] file contains a reference to the $PROMPT_FILE_NAME [$PROMPT_FILE_PATH] file" bash -c "cat $RC_FILE_PATH | grep '$PROMPT_FILE_PATH' | grep -q source"
+check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file exists" bash -c "test -f $USER_RC_FILE_PATH"
+check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file exists is owned by the [$USER] user" bash -c "stat -c "%U" $USER_RC_FILE_PATH | grep -q -E '^$USER$'"
+check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file contains a reference to the feature's $RC_FILE_NAME [$RC_FILE_PATH] file" bash -c "cat '$USER_RC_FILE_PATH' | grep '$RC_FILE_PATH' | grep -q source"
 
-check "The $SENSIBLE_FILE_NAME [$SENSIBLE_FILE_PATH] file exists" bash -c "sudo test -f $SENSIBLE_FILE_PATH"
-check "The $SENSIBLE_FILE_NAME [$SENSIBLE_FILE_PATH] file is owned by the [$USER] user" bash -c "sudo stat -c "%U" $SENSIBLE_FILE_PATH | grep -q -E '^$USER$'"
-check "The $RC_FILE_NAME [$RC_FILE_PATH] file exists" bash -c "sudo test -f $RC_FILE_PATH"
-check "The $RC_FILE_NAME [$RC_FILE_PATH] file exists is owned by the [$USER] user" bash -c "sudo stat -c "%U" $RC_FILE_PATH | grep -q -E '^$USER$'"
-check "The $RC_FILE_NAME [$RC_FILE_PATH] file contains a reference to the $SENSIBLE_FILE_NAME [$SENSIBLE_FILE_PATH] file" bash -c "sudo cat $RC_FILE_PATH | grep '$SENSIBLE_FILE_PATH' | grep -q source"
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file exists" bash -c "sudo test -f $USER_RC_FILE_PATH"
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file exists is owned by the [$USER] user" bash -c "sudo stat -c "%U" $USER_RC_FILE_PATH | grep -q -E '^$USER$'"
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file contains a reference to the feature's $RC_FILE_NAME [$RC_FILE_PATH] file" bash -c "sudo cat '$USER_RC_FILE_PATH' | grep '$RC_FILE_PATH' | grep -q source"
+check "The $SENSIBLE_FILE_NAME [$SENSIBLE_FILE_PATH] file exists" bash -c "test -f $SENSIBLE_FILE_PATH"
+check "The $SENSIBLE_FILE_NAME [$SENSIBLE_FILE_PATH] file is owned by the [$USER] user" bash -c "stat -c "%U" $SENSIBLE_FILE_PATH | grep -q -E '^$USER$'"
+check "The $RC_FILE_NAME [$RC_FILE_PATH] file exists" bash -c "test -f $RC_FILE_PATH"
+check "The $RC_FILE_NAME [$RC_FILE_PATH] file exists is owned by the [$USER] user" bash -c "stat -c "%U" $RC_FILE_PATH | grep -q -E '^$USER$'"
+check "The $RC_FILE_NAME [$RC_FILE_PATH] file contains a reference to the $SENSIBLE_FILE_NAME [$SENSIBLE_FILE_PATH] file" bash -c "cat $RC_FILE_PATH | grep '$SENSIBLE_FILE_PATH' | grep -q source"
+check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file exists" bash -c "test -f $USER_RC_FILE_PATH"
+check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file exists is owned by the [$USER] user" bash -c "stat -c "%U" $USER_RC_FILE_PATH | grep -q -E '^$USER$'"
+check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file contains a reference to the feature's $RC_FILE_NAME [$RC_FILE_PATH] file" bash -c "cat '$USER_RC_FILE_PATH' | grep '$RC_FILE_PATH' | grep -q source"
 
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file contains ONLY ONE reference to the feature's $RC_FILE_NAME [$RC_FILE_PATH] file" bash -c "test \$(sudo cat $USER_RC_FILE_PATH | grep '$RC_FILE_PATH' | grep source | wc -l) -eq '1'"
+check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file contains ONLY ONE reference to the feature's $RC_FILE_NAME [$RC_FILE_PATH] file" bash -c "test \$(cat $USER_RC_FILE_PATH | grep '$RC_FILE_PATH' | grep source | wc -l) -eq '1'"
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

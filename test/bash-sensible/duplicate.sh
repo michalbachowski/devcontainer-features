@@ -30,7 +30,7 @@
 #                   /workspaces/devcontainer-features
 source _common_tests.sh
 
-check "The user's [$user_rc_file_path] file contains ONLY ONE reference to the feature's [$rc_file_path] file" bash -c "test \$(sudo cat $user_rc_file_path | grep '$rc_file_path' | grep source | wc -l) -eq '1'"
+check "The user's [$user_rc_file_path] file contains ONLY ONE reference to the feature's [$rc_file_path] file" bash -c "test \$(cat $user_rc_file_path | grep '$rc_file_path' | grep source | wc -l) -eq '1'"
 
 # Report results
 # If any of the checks above exited with a non-zero exit code, the test will fail.
