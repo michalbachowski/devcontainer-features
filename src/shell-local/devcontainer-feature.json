@@ -17,7 +17,7 @@
     },
     "installsAfter": [
         "ghcr.io/devcontainers/features/common-utils",
-        //"ghcr.io/michalbachowski/devcontainer-features/bash-sensible",
+        "ghcr.io/michalbachowski/devcontainer-features/bash-sensible",
         "ghcr.io/stuartleeks/dev-container-features/shell-history"
     ]
 }
