@@ -15,7 +15,7 @@
             "type": "boolean"
         }
     },
-    "onCreateCommand": "./.devcontainer/custom-ca-cert/onCreateCommand.sh",
+    "onCreateCommand": "/devcontainer-feature/michalbachowski/custom-ca-cert/onCreateCommand.sh",
     "containerEnv": {
 		"NODE_OPTIONS": "--use-openssl-ca"
     }

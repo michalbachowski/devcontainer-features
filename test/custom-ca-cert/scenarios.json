@@ -20,5 +20,13 @@
                 "cert_path": "/optcert.pem"
             }
         }
+    },
+    "update_onCreateCommand": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v1",
+        "features": {
+            "custom-ca-cert": {
+                "update_cert_stores_during_build": true
+            }
+        }
     }
 }

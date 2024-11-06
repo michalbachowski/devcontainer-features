@@ -17,7 +17,7 @@ if [ "$SSL_CERT_FILE" != "${DEVCONTAINER_CUSTOM_CA_CERT_VALUE}" ]; then
 fi
 
 if [ "$UPDATE_CERT_STORES_DURING_BUILD" = 'false' ]; then
-    ./update_cert_stores.sh
+    /devcontainer-feature/michalbachowski/custom-ca-cert/update_cert_stores.sh
 fi
 
 echo "Done"

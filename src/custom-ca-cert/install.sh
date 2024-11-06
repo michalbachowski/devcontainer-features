@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-ENV_FILE_PATH=/etc/environment
+FEATURE_NAME=custom-ca-cert
 
-echo "Activating the [custom-ca-cert] feature."
+echo "Activating the [$FEATURE_NAME] feature."
 
 if [ -z "$CERT_PATH" ]; then
     if [ -z "$SSL_CERT_FILE" ]; then
@@ -13,16 +13,9 @@ if [ -z "$CERT_PATH" ]; then
     CERT_PATH=$SSL_CERT_FILE
 fi
 
-function set_env
-{
-    env_name="$1"
-    value="${2:-$CERT_PATH}"
+. ./library_scripts.sh
 
-    if ! cat $ENV_FILE_PATH | grep $env_name | grep "$value"; then
-        echo "Setting environment variable [$env_name]"
-        echo "${env_name}=\"$value\"" >> $ENV_FILE_PATH
-    fi
-}
+copy_feature_files $FEATURE_NAME
 
 set_env CURL_CA_BUNDLE
 set_env DEVCONTAINER_CUSTOM_CA_CERT_VALUE
