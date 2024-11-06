@@ -6,4 +6,6 @@ USER_SHELL=bash
 
 . ./library_scripts.sh
 
-add_feature_shell_file "$FEATURE_NAME" "$SCRIPT_NAME" "$USER_SHELL"
+title $FEATURE_NAME
+copy_feature_files feature_cache_dir $FEATURE_NAME
+add_feature_shell_file "$FEATURE_NAME" "${feature_cache_dir}/$SCRIPT_NAME" "$USER_SHELL"

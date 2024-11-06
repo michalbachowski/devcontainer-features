@@ -1,6 +1,6 @@
 {
     "name": "Fancy Bash prompt",
     "id": "bash-prompt",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Enables fancy bash prompt for container user."
 }

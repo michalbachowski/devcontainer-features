@@ -3,7 +3,9 @@ set -e
 
 FEATURE_NAME=custom-ca-cert
 
-echo "Activating the [$FEATURE_NAME] feature."
+. ./library_scripts.sh
+
+title $FEATURE_NAME
 
 if [ -z "$CERT_PATH" ]; then
     if [ -z "$SSL_CERT_FILE" ]; then
@@ -13,9 +15,7 @@ if [ -z "$CERT_PATH" ]; then
     CERT_PATH=$SSL_CERT_FILE
 fi
 
-. ./library_scripts.sh
-
-copy_feature_files $FEATURE_NAME
+copy_feature_files feature_cache_dir $FEATURE_NAME
 
 set_env CURL_CA_BUNDLE
 set_env DEVCONTAINER_CUSTOM_CA_CERT_VALUE

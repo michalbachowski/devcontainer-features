@@ -1,7 +1,7 @@
 {
-    "name": "pre-commit initialize",
+    "name": "Run pre-commit initialize",
     "id": "pre-commit-initialize",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Calls [pre-commit install] during postCreateCommand.",
     "postCreateCommand": "pre-commit install --install-hooks --overwrite --allow-missing-config",
     "installsAfter": [

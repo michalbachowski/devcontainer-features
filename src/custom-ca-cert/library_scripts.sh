@@ -1,6 +1,14 @@
 export DCFMB_COMMON_DIR=/devcontainer-feature/michalbachowski
 export ENV_FILE_PATH=/etc/environment
 
+function title
+{
+
+    local feature_name="$1"
+
+    echo "Activating feature [$feature_name]"
+}
+
 function ensure_common_dir
 {
     # create common dir
@@ -12,11 +20,12 @@ function ensure_common_dir
 
 function copy_feature_files
 {
-    local feature_name="$1"
-    local feature_files_source_path="${2:-$(pwd)}"
+    local -n feature_files_dest_path=$1
+    local feature_name="$2"
+    local feature_files_source_path="$(pwd)"
     local env_name_suffix="$(echo $feature_name | tr '[:lower:]' '[:upper:]' | tr '-' '_')"
 
-    local feature_files_dest_path="${DCFMB_COMMON_DIR}/$1"
+    feature_files_dest_path="${DCFMB_COMMON_DIR}/${feature_name}"
 
     ensure_common_dir
 
@@ -30,7 +39,7 @@ function copy_feature_files
     chown root "$feature_files_dest_path"
     chmod 0555 "$feature_files_dest_path"
 
-    set_env "DCFMB_${env_name_suffix}_PATH" "$feature_files_path"
+    set_env "DCFMB_${env_name_suffix}_PATH" "$feature_files_dest_path"
 
     echo "Final state of the [$feature_name] feature cache dir is:"
     ls -la "$feature_files_dest_path"
@@ -44,8 +53,6 @@ function add_feature_shell_file
     local custom_script_path="$2"
     local user_shell="$3"
 
-    echo "Activating feature [$feature_name]"
-
     echo "User: ${_REMOTE_USER} [$(id -u $_REMOTE_USER)]     User home: ${_REMOTE_USER_HOME}"
 
     if [  -z "$_REMOTE_USER" ] || [ -z "$_REMOTE_USER_HOME" ]; then
@@ -57,7 +64,6 @@ function add_feature_shell_file
 
     ensure_common_dir
 
-    local DEST_SCRIPT_PATH="$DCFMB_COMMON_DIR/$custom_script_path"
     local DEST_SHELLRC_PATH="$DCFMB_COMMON_DIR/${user_shell}rc"
 
     local user_shellrc_path="$_REMOTE_USER_HOME/.${user_shell}rc"
@@ -67,31 +73,20 @@ function add_feature_shell_file
         exit 1
     fi
 
-    if [ -f "$DEST_SCRIPT_PATH" ]; then
-        echo "The [$DEST_SCRIPT_PATH] file exists, skipping"
-        exit 0
-    fi
-
     if [ -z "$custom_script_path" ]; then
         echo "The custom script path is empty, aborting!"
         exit 1
     fi
 
     # if the custom script exists, copy it to the common dir
-    if [ -f "$custom_script_path" ]; then
-        echo "Copying [$custom_script_path] to [$DEST_SCRIPT_PATH]"
-        cp "$custom_script_path" "$DEST_SCRIPT_PATH"
-        chown root "$DEST_SCRIPT_PATH"
-        chmod 0555 "$DEST_SCRIPT_PATH"
-        echo "The details of the [$DEST_SCRIPT_PATH] are: $(ls -la $DEST_SCRIPT_PATH)"
-    else
+    if [ ! -f "$custom_script_path" ]; then
         echo "The [$custom_script_path] file does not exists."
         echo "Moving forward, since it might be mounted during container run."
     fi
 
     # source custom script in custom <shell>rc
-    echo "Adding the call (source) of the [$DEST_SCRIPT_PATH] custom script to the [$DEST_SHELLRC_PATH] common shell config file."
-    echo "[[ \"\$-\" = *i* ]] && [ -f '$DEST_SCRIPT_PATH' ] && source '$DEST_SCRIPT_PATH'" >> $DEST_SHELLRC_PATH
+    echo "Adding the call (source) of the [$custom_script_path] custom script to the [$DEST_SHELLRC_PATH] common shell config file."
+    echo "[[ \"\$-\" = *i* ]] && [ -f '$custom_script_path' ] && source '$custom_script_path'" >> $DEST_SHELLRC_PATH
     chown root "$DEST_SHELLRC_PATH"
     chmod 0555 "$DEST_SHELLRC_PATH"
     echo "The details of the [$DEST_SHELLRC_PATH] are: $(ls -la $DEST_SHELLRC_PATH)"
