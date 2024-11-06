@@ -1,7 +1,7 @@
 {
     "name": "Allow to load any local file during shell init",
     "id": "shell-local",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Adds a step to load (source) custom shell scrip when initializing Bash or Zsh.",
     "options": {
         "bash_script_path": {
