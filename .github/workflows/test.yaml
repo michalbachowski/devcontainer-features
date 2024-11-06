@@ -16,14 +16,13 @@ jobs:
           - bash-prompt
           - bash-sensible
           - custom-ca-cert
-          - pre-commit-initialize
           - scalafmt-native
           - shell-local
           - snyk-cli
           - zsh-prompt-currenttime
         baseImage:
-          - michalbachowski/devcontainer-test-ubuntu:v1
-          - michalbachowski/devcontainer-test-debian:v1
+          - bachowskimichal/devcontainer-test-ubuntu:v1
+          - bachowskimichal/devcontainer-test-debian:v1
     steps:
       - uses: actions/checkout@v4
 
@@ -42,14 +41,13 @@ jobs:
           - bash-prompt
           - bash-sensible
           - custom-ca-cert
-          - pre-commit-initialize
           - scalafmt-native
           - shell-local
           - snyk-cli
           - zsh-prompt-currenttime
         baseImage:
-          - michalbachowski/devcontainer-test-ubuntu:v1
-          - michalbachowski/devcontainer-test-debian:v1
+          - bachowskimichal/devcontainer-test-ubuntu:v1
+          - bachowskimichal/devcontainer-test-debian:v1
     steps:
       - uses: actions/checkout@v4
 
@@ -92,4 +90,4 @@ jobs:
         run: npm install -g @devcontainers/cli
 
       - name: "Testing global scenarios"
-        run: devcontainer features test --global-scenarios-only --image michalbachowski/devcontainer-test-ubuntu:v1 .
+        run: devcontainer features test --global-scenarios-only --image bachowskimichal/devcontainer-test-ubuntu:v1 .

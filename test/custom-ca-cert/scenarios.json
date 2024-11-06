@@ -8,13 +8,13 @@
         }
     },
     "from_env": {
-        "image": "michalbachowski/devcontainer-test-ubuntu:v1",
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v1",
         "features": {
             "custom-ca-cert": {}
         }
     },
     "from_both": {
-        "image": "michalbachowski/devcontainer-test-ubuntu:v1",
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v1",
         "features": {
             "custom-ca-cert": {
                 "cert_path": "/optcert.pem"

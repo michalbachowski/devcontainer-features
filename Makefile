@@ -1,4 +1,4 @@
-IMAGE=michalbachowski/devcontainer-test-ubuntu:v1
+IMAGE=bachowskimichal/devcontainer-test-ubuntu:v1
 IN=src
 FROM=bash-prompt
 FILE=library_scripts.sh
@@ -57,14 +57,14 @@ test-all:
 build-debian:
 	cd image && \
 	docker build \
-		--tag michalbachowski/devcontainer-test-debian:v1 \
+		--tag bachowskimichal/devcontainer-test-debian:v1 \
 		--file debian.Dockerfile \
 		.
 
 build-ubuntu:
 	cd image && \
 	docker build \
-		--tag michalbachowski/devcontainer-test-ubuntu:v1 \
+		--tag bachowskimichal/devcontainer-test-ubuntu:v1 \
 		--file ubuntu.Dockerfile \
 		.
 

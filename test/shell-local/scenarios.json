@@ -1,6 +1,6 @@
 {
     "non-root-user-both-scripts": {
-        "image": "michalbachowski/devcontainer-test-ubuntu:v1",
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v1",
         "remoteUser": "testuser",
         "features": {
             "shell-local": {
@@ -10,7 +10,7 @@
         }
     },
     "only-bash": {
-        "image": "michalbachowski/devcontainer-test-ubuntu:v1",
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v1",
         "features": {
             "shell-local": {
                 "bash_script_path": "script.bash"
@@ -18,7 +18,7 @@
         }
     },
     "only-zsh": {
-        "image": "michalbachowski/devcontainer-test-ubuntu:v1",
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v1",
         "features": {
             "shell-local": {
                 "zsh_script_path": "script.zsh"
