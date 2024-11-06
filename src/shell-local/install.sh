@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-. ./library_scripts.bash
+. ./library_scripts.sh
 
 FEATURE_NAME=shell-local
 

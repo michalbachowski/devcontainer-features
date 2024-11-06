@@ -3,21 +3,21 @@
         "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
         "features": {
             "custom-ca-cert": {
-                "cert_path": "/test/cert"
+                "cert_path": "/optcert.pem"
             }
         }
     },
     "from_env": {
-        "image": "michalbachowski/devcontainer-test-image:v1",
+        "image": "michalbachowski/devcontainer-test-ubuntu:v1",
         "features": {
             "custom-ca-cert": {}
         }
     },
     "from_both": {
-        "image": "michalbachowski/devcontainer-test-image:v1",
+        "image": "michalbachowski/devcontainer-test-ubuntu:v1",
         "features": {
             "custom-ca-cert": {
-                "cert_path": "/test/cert"
+                "cert_path": "/optcert.pem"
             }
         }
     }

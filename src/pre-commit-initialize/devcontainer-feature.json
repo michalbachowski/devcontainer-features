@@ -3,7 +3,7 @@
     "id": "bash-prompt",
     "version": "0.0.1",
     "description": "Enables fancy bash prompt for selected users.",
-    "onCreateCommand": "cd ${containerWorkspaceFolder} && pre-commit install --install-hooks --overwrite --allow-missing-config",
+    "postCreateCommand": "pre-commit install --install-hooks --overwrite --allow-missing-config",
     "installsAfter": [
         "ghcr.io/cirolosapio/devcontainers-features/alpine-git",
         "ghcr.io/devcontainers/features/git",

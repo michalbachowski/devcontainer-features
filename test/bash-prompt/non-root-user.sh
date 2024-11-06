@@ -29,7 +29,7 @@
 #                   --base-image mcr.microsoft.com/devcontainers/baseubuntu \
 #                   /workspaces/devcontainer-features
 
-USER=vscode
+NON_ROOT_USER="1"
 source _common_tests.sh
 
 # Report results

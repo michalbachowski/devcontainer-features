@@ -1,0 +1,10 @@
+{
+    "devcontainers-contrib": {
+        "image": "michalbachowski/devcontainer-test-ubuntu:v1",
+        "onCreateCommand": "git init . && chown root . && git config --global --add safe.directory $(pwd) && echo 'repos: []' > .pre-commit-config.yaml",
+        "features": {
+            "ghcr.io/devcontainers-contrib/features/pre-commit": {},
+            "pre-commit-initialize": {}
+        }
+    }
+}

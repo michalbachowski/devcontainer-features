@@ -10,6 +10,16 @@ if [ -f $DEST ]; then
     exit 0
 fi
 
+if ! command -v curl >/dev/null; then
+    echo ""
+    echo "========================"
+    echo "Command [curl] not found. Please install it first!"
+    echo ""
+    echo "========================"
+    echo ""
+    exit 1
+fi
+
 sysarch=$(uname -m)
 
 case $sysarch in \

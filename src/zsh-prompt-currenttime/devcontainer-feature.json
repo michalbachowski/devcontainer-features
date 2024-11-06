@@ -2,12 +2,5 @@
     "name": "Fancy Bash prompt",
     "id": "bash-prompt",
     "version": "0.0.1",
-    "description": "Enables fancy bash prompt for selected users.",
-    "options": {
-        "users": {
-            "default": "root",
-            "description": "Space-separated list of users to install the script for.",
-            "type": "string"
-        }
-    }
+    "description": "Enables fancy bash prompt for container user."
 }
