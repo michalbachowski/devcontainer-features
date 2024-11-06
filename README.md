@@ -14,7 +14,7 @@ If you mount the `~/.basrc` it is enough to source the `/devcontainer-feature/mi
 Adds the [sensible-bash](https://github.com/mrzool/bash-sensible/) to the `bashrc`.
 If you mount the `~/.basrc` it is enough to source the `/devcontainer-feature/michalbachowski/bashrc` to enable all installed Bash-related features from this repo.
 
-## custom-ca-cert
+## [custom-ca-cert](./src/custom-ca-cert/)
 
 Sets some environment variables and adds custom configuration for some tools (eg. `keytool`, `pip`, `npm`) to use given custom CA cert.
 The cert might be given by `SSL_CERT_FILE` environment variable or as a explicit option to the feature.
@@ -30,7 +30,7 @@ Initializes the [pre-commit](https://pre-commit.com) for the workspace folder.
 Installs the [scalafmt-native](https://scalameta.org/scalafmt/docs/installation.html#native-image) (pre-built GraalVm image).
 Requires `curl` installed.
 
-## shell-local
+## [shell-local](./src/shell-local/)
 
 Allows to easily add custom commands to be sourced by default by the `Bash` or `Zsh`.
 The file might be mounted to the container, since the code verifies if the file exists before sourcing it.
