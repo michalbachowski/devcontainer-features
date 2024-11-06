@@ -1,6 +1,6 @@
 {
-    "name": "Fancy Bash prompt",
-    "id": "bash-prompt",
+    "name": "Zsh Prompt Current Time",
+    "id": "zsh-prompt-currenttime",
     "version": "0.0.1",
-    "description": "Enables fancy bash prompt for container user."
+    "description": "Displays current time on the right side of the Zsh prompt"
 }

@@ -1,8 +1,8 @@
 {
-    "name": "Fancy Bash prompt",
-    "id": "bash-prompt",
+    "name": "pre-commit initialize",
+    "id": "pre-commit-initialize",
     "version": "0.0.1",
-    "description": "Enables fancy bash prompt for selected users.",
+    "description": "Calls [pre-commit install] during postCreateCommand.",
     "postCreateCommand": "pre-commit install --install-hooks --overwrite --allow-missing-config",
     "installsAfter": [
         "ghcr.io/cirolosapio/devcontainers-features/alpine-git",
