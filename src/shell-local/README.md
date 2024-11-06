@@ -1,5 +1,5 @@
 
-# Allow to load any local file during shell init (shell-local)
+# Load local file during shell init (shell-local)
 
 Adds a step to load (source) custom shell scrip when initializing Bash or Zsh.
 

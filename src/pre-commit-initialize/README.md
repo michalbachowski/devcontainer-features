@@ -1,5 +1,5 @@
 
-# pre-commit initialize (pre-commit-initialize)
+# Run pre-commit initialize (pre-commit-initialize)
 
 Calls [pre-commit install] during postCreateCommand.
 
