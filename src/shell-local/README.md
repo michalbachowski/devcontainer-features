@@ -22,4 +22,4 @@ Adds a step to load (source) custom shell scrip when initializing Bash or Zsh.
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/michalbachowski/devcontainer-features/blob/main/./shell-local/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/michalbachowski/devcontainer-features/blob/main/src/shell-local/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._

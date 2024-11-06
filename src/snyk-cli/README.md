@@ -21,4 +21,4 @@ Installs snyk-cli by downloading artifact from GitHub
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/michalbachowski/devcontainer-features/blob/main/./snyk-cli/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/michalbachowski/devcontainer-features/blob/main/src/snyk-cli/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._

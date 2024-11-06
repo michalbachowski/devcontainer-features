@@ -21,4 +21,4 @@ Copies the bash-sensible (static copy of https://github.com/mrzool/bash-sensible
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/michalbachowski/devcontainer-features/blob/main/./bash-sensible/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-feature.json](https://github.com/michalbachowski/devcontainer-features/blob/main/src/bash-sensible/devcontainer-feature.json).  Add additional notes to a `NOTES.md`._
