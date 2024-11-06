@@ -1,13 +1,13 @@
 
-# Fancy Bash prompt (bash-prompt)
+# pre-commit initialize (pre-commit-initialize)
 
-Enables fancy bash prompt for selected users.
+Calls [pre-commit install] during postCreateCommand.
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/michalbachowski/devcontainer-features/bash-prompt:0": {}
+    "ghcr.io/michalbachowski/devcontainer-features/pre-commit-initialize:0": {}
 }
 ```
 

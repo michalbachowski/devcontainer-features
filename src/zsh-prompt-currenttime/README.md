@@ -1,13 +1,13 @@
 
-# Fancy Bash prompt (bash-prompt)
+# Zsh Prompt Current Time (zsh-prompt-currenttime)
 
-Enables fancy bash prompt for container user.
+Displays current time on the right side of the Zsh prompt
 
 ## Example Usage
 
 ```json
 "features": {
-    "ghcr.io/michalbachowski/devcontainer-features/bash-prompt:0": {}
+    "ghcr.io/michalbachowski/devcontainer-features/zsh-prompt-currenttime:0": {}
 }
 ```
 
