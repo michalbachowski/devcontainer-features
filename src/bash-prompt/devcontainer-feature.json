@@ -1,7 +1,7 @@
 {
     "name": "Fancy Bash prompt",
     "id": "bash-prompt",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Enables fancy bash prompt for container user.",
     "installsAfter": [
         "./bash-sensible"
