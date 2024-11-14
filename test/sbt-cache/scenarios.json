@@ -1,0 +1,9 @@
+{
+    "non-root-user": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v1",
+        "remoteUser": "testuser",
+        "features": {
+            "sbt-cache": {}
+        }
+    }
+}

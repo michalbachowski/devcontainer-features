@@ -16,6 +16,7 @@ jobs:
           - bash-prompt
           - bash-sensible
           - custom-ca-cert
+          - sbt-cache
           - scalafmt-native
           - shell-local
           - snyk-cli
@@ -41,6 +42,7 @@ jobs:
           - bash-prompt
           - bash-sensible
           - custom-ca-cert
+          - sbt-cache
           - scalafmt-native
           - shell-local
           - snyk-cli
@@ -67,6 +69,7 @@ jobs:
           - bash-sensible
           - custom-ca-cert
           - pre-commit-initialize
+          - sbt-cache
           - scalafmt-native
           - shell-local
           - snyk-cli
