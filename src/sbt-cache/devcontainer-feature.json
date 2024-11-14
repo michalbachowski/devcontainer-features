@@ -1,12 +1,12 @@
 {
     "name": "sbt cache",
     "id": "sbt-cache",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Prepares a volume to cache sbt (coursier) packages.",
     "installsAfter": [
     ],
     "containerEnv": {
-		"COURSIER_PATH": "/devcontainer-feature/michalbachowski/sbt-cache/coursier"
+		"COURSIER_CACHE": "/devcontainer-feature/michalbachowski/sbt-cache/coursier"
 	},
     "mounts": [
         {

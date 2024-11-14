@@ -7,9 +7,9 @@ FEATURE_NAME=sbt-cache
 
 title $FEATURE_NAME
 
-mkdir -p $COURSIER_PATH
-chown $_REMOTE_USER "$COURSIER_PATH"
-chmod 0766 "$COURSIER_PATH"
-echo "The details of the [$COURSIER_PATH] are: $(ls -la $COURSIER_PATH)"
+mkdir -p $COURSIER_CACHE
+chown $_REMOTE_USER "$COURSIER_CACHE"
+chmod 0766 "$COURSIER_CACHE"
+echo "The details of the [$COURSIER_CACHE] are: $(ls -la $COURSIER_CACHE)"
 
 echo Done
