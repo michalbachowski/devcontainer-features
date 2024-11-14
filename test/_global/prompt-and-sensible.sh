@@ -16,39 +16,26 @@ set -e
 # Optional: Import test library bundled with the devcontainer CLI
 source dev-container-features-test-lib
 
-DEST_DIR=/devcontainer-feature/michalbachowski
-USER=root
-HOMEDIR=/root
-PROMPT_FILE_NAME=prompt.bash
-PROMPT_FILE_PATH=$DEST_DIR/$PROMPT_FILE_NAME
-SENSIBLE_FILE_NAME=sensible.bash
-SENSIBLE_FILE_PATH=$DEST_DIR/$SENSIBLE_FILE_NAME
-RC_FILE_NAME=bashrc
-RC_FILE_PATH=$DEST_DIR/$RC_FILE_NAME
-USER_RC_FILE_PATH=$HOMEDIR/.$RC_FILE_NAME
+source test_scripts.sh
 
-# Feature-specific tests
-# The 'check' command comes from the dev-container-features-test-lib. Syntax is...
-# check <LABEL> <cmd> [args...]
-check "The $PROMPT_FILE_NAME [$PROMPT_FILE_PATH] file exists" bash -c "test -f $PROMPT_FILE_PATH"
-check "The $PROMPT_FILE_NAME [$PROMPT_FILE_PATH] file is owned by the [$USER] user" bash -c "stat -c "%U" $PROMPT_FILE_PATH | grep -q -E '^$USER$'"
-check "The $RC_FILE_NAME [$RC_FILE_PATH] file exists" bash -c "test -f $RC_FILE_PATH"
-check "The $RC_FILE_NAME [$RC_FILE_PATH] file exists is owned by the [$USER] user" bash -c "stat -c "%U" $RC_FILE_PATH | grep -q -E '^$USER$'"
-check "The $RC_FILE_NAME [$RC_FILE_PATH] file contains a reference to the $PROMPT_FILE_NAME [$PROMPT_FILE_PATH] file" bash -c "cat $RC_FILE_PATH | grep '$PROMPT_FILE_PATH' | grep -q source"
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file exists" bash -c "test -f $USER_RC_FILE_PATH"
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file exists is owned by the [$USER] user" bash -c "stat -c "%U" $USER_RC_FILE_PATH | grep -q -E '^$USER$'"
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file contains a reference to the feature's $RC_FILE_NAME [$RC_FILE_PATH] file" bash -c "cat '$USER_RC_FILE_PATH' | grep '$RC_FILE_PATH' | grep -q source"
+# check bash-prompt
+FEATURE_NAME=bash-prompt
+PROMPT_FILE_NAME="$COMMON_DIR/$FEATURE_NAME/prompt.bash"
+USER_SHELL=bash
 
-check "The $SENSIBLE_FILE_NAME [$SENSIBLE_FILE_PATH] file exists" bash -c "test -f $SENSIBLE_FILE_PATH"
-check "The $SENSIBLE_FILE_NAME [$SENSIBLE_FILE_PATH] file is owned by the [$USER] user" bash -c "stat -c "%U" $SENSIBLE_FILE_PATH | grep -q -E '^$USER$'"
-check "The $RC_FILE_NAME [$RC_FILE_PATH] file exists" bash -c "test -f $RC_FILE_PATH"
-check "The $RC_FILE_NAME [$RC_FILE_PATH] file exists is owned by the [$USER] user" bash -c "stat -c "%U" $RC_FILE_PATH | grep -q -E '^$USER$'"
-check "The $RC_FILE_NAME [$RC_FILE_PATH] file contains a reference to the $SENSIBLE_FILE_NAME [$SENSIBLE_FILE_PATH] file" bash -c "cat $RC_FILE_PATH | grep '$SENSIBLE_FILE_PATH' | grep -q source"
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file exists" bash -c "test -f $USER_RC_FILE_PATH"
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file exists is owned by the [$USER] user" bash -c "stat -c "%U" $USER_RC_FILE_PATH | grep -q -E '^$USER$'"
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file contains a reference to the feature's $RC_FILE_NAME [$RC_FILE_PATH] file" bash -c "cat '$USER_RC_FILE_PATH' | grep '$RC_FILE_PATH' | grep -q source"
+test_shell_features $FEATURE_NAME $PROMPT_FILE_NAME $USER_SHELL
 
-check "The user's [$USER] $RC_FILE_NAME [$USER_RC_FILE_PATH] file contains ONLY ONE reference to the feature's $RC_FILE_NAME [$RC_FILE_PATH] file" bash -c "test \$(cat $USER_RC_FILE_PATH | grep '$RC_FILE_PATH' | grep source | wc -l) -eq '1'"
+check "When sourcing the [$user_rc_file_path] script file, the prompt takes effect" $USER_SHELL -i -c "[[ \"\$PROMPT_COMMAND\" =~ _update_ps1 ]] && exit 0 || exit 1"
+
+# check bash-sensible
+
+FEATURE_NAME=bash-sensible
+SENSIBLE_FILE_NAME="$COMMON_DIR/$FEATURE_NAME/sensible.bash"
+USER_SHELL=bash
+
+test_shell_features $FEATURE_NAME "$SENSIBLE_FILE_NAME" "$USER_SHELL"
+
+check "When sourcing the [$user_rc_file_path] script file, the sensible config takes effect" $USER_SHELL -i -c "test \"\$HISTIGNORE\" = '&:[ ]*:exit:ls:bg:fg:history:clear' || exit 1"
 
 # Report result
 # If any of the checks above exited with a non-zero exit code, the test will fail.

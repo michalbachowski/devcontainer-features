@@ -93,4 +93,4 @@ jobs:
         run: npm install -g @devcontainers/cli
 
       - name: "Testing global scenarios"
-        run: devcontainer features test --global-scenarios-only --image bachowskimichal/devcontainer-test-ubuntu:v1 .
+        run: devcontainer features test --global-scenarios-only --remote-user root -i bachowskimichal/devcontainer-test-ubuntu:v1 .
