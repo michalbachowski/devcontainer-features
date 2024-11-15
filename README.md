@@ -46,3 +46,67 @@ Requires `curl` installed.
 
 Adds current time to the right side of the `Zsh` prompt (`$RPS1`)
 If you mount the `~/.zshrc` it is enough to source the `/devcontainer-feature/michalbachowski/zshrc` to enable all installed Zsh-related features from this repo.
+
+# Development
+
+For local development use existing DevContainer.
+
+## Syncing common file
+
+Features contain some common code stored in the `library_scripts.sh` (for feature execution) and `test_scripts.sh` (for tests).
+The files are kept in sync - each feature contains the same file (regardles if anything from the common code is actually used or not).
+
+To verify is files are out of sync:
+
+```bash
+make cmp-files
+make cmp-files IN=test FILE=test_scripts.sh
+```
+
+To keep files in sync, run the following once you are done with your changes:
+
+For `library_scripts.sh`:
+```bash
+make sync-files FROM=<source-feature-name>
+```
+
+For `test_scripts.sh`:
+```bash
+make sync-files FROM=<source-feature-name> IN=test FILE=test_scripts.sh
+```
+
+## Building custom Docker images
+
+There are 2 custom docker images build to support testing.
+
+To re-build them run:
+
+```bash
+make build-images
+```
+
+Once the images are pushed correctly, run:
+
+```bash
+docker login
+make build-images PUSH=true
+```
+
+## Testing
+
+Reference [Makefile](./Makefile) for commands.
+
+### Run single type of tests for a single feature
+
+```bash
+make test-scenarios FEATURE=custom-ca-cert
+```
+
+### Running all test types for a given features
+
+```bash
+make test-all FEATURE=sbt-cache
+```
+
+<Warning>
+Not all features have defined all possible test types (eg. [pre-commit-initialize](./src/pre-commit-initialize/) has only scenario-based tests defined).
