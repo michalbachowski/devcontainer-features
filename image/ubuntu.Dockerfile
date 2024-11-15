@@ -1,4 +1,4 @@
-FROM ubuntu:oracular-20241009
+FROM eclipse-temurin:23.0.1_11-jre-noble
 
 #
 # add test user
@@ -7,14 +7,22 @@ RUN \
     useradd -ms /bin/bash testuser
 
 #
-# install missing packages
+# copy files
 #
 COPY \
     ensure_nanolayer.sh \
-    envcert.pem \
-    optcert.pem \
     /
 
+COPY \
+    test-cert.pem \
+    /usr/local/share/ca-certificates/custom-ca-cert.crt
+
+COPY \
+    pip.conf /etc/pip.conf
+
+#
+# install missing packages
+#
 RUN \
     set +u; \
     . /ensure_nanolayer.sh && \
