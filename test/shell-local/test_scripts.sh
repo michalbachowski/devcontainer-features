@@ -74,13 +74,20 @@ function test_binary_feature
 
 function check_env_is_set
 {
-    env_name="$1"
-    value="${2}"
-    path="${3:-$ENV_FILE_PATH}"
-    check "The [$env_name] prop is set in the [$path] and contains [$value] as a value" bash -c "cat $path | grep $env_name | grep -q '$value'"
+    local env_name="$1"
+    local value="${2}"
 
-    # for environment variables, check effective values
-    if [ "$path" = "$ENV_FILE_PATH" ]; then
-        check "The [$env_name] prop is effectively set to [$value]" bash -i -c "set -a; source /etc/environment; [ \"\$$env_name\" = \"$value\" ] || exit 1"
-    fi
+    check_file_contains "$env_name=\"$value\""
+
+    check "The [$env_name] prop is effectively set to [$value] (non-interactive, non-login shell)" bash -c "[ \"\$$env_name\" = \"$value\" ] || exit 1"
+    check "The [$env_name] prop is effectively set to [$value] (interactive, non-login shell)" bash -i -c "[ \"\$$env_name\" = \"$value\" ] || exit 1"
+    check "The [$env_name] prop is effectively set to [$value] (non-interactive, login shell)" bash -l -c "[ \"\$$env_name\" = \"$value\" ] || exit 1"
+    check "The [$env_name] prop is effectively set to [$value] (interactive, login shell)" bash -i -l -c "[ \"\$$env_name\" = \"$value\" ] || exit 1"
+}
+
+function check_file_contains
+{
+    local value="$1"
+    local path="${2:-$ENV_FILE_PATH}"
+    check "The [$value] prop is set in the [$path] file" bash -c "cat $path | grep -q -F '$value'"
 }
