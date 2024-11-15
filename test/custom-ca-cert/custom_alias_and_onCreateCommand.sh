@@ -29,7 +29,8 @@
 #                   --base-image mcr.microsoft.com/devcontainers/baseubuntu \
 #                   /workspaces/devcontainer-features
 
-CERT_PATH="/envcert.pem"
+CA_ALIAS="My Alias"
+NO_MARK_FILE=1
 source _common_tests.sh
 
 # Report results

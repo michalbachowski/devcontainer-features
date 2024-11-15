@@ -7,27 +7,7 @@ FEATURE_NAME=custom-ca-cert
 
 title $FEATURE_NAME
 
-if [ -z "$CERT_PATH" ]; then
-    if [ -z "$SSL_CERT_FILE" ]; then
-        echo "Neither CERT_PATH nor SSL_CERT_FILE are given, skipping"
-        exit 1
-    fi
-    CERT_PATH=$SSL_CERT_FILE
-fi
-
 copy_feature_files feature_cache_dir $FEATURE_NAME
-
-set_env CURL_CA_BUNDLE
-set_env DEVCONTAINER_CUSTOM_CA_CERT_VALUE
-set_env NODE_EXTRA_CA_CERTS
-set_env NODE_CONFIG_CAFILE
-set_env PIP_CERT
-set_env REQUESTS_CA_BUNDLE
-# do not re-add SSL_CERT_FILE if the value does not change
-if [ "$SSL_CERT_FILE" != "$CERT_PATH" ]; then
-    set_env SSL_CERT_FILE
-fi
-set_env UPDATE_CERT_STORES_DURING_BUILD "$UPDATE_CERT_STORES_DURING_BUILD"
 
 PIP_CONF_PATH=/etc/pip.conf
 if ! cat $PIP_CONF_PATH | grep -q cert; then
@@ -35,7 +15,7 @@ if ! cat $PIP_CONF_PATH | grep -q cert; then
 
     cat << EOF >> $PIP_CONF_PATH
 [global]
-cert=${CERT_PATH}
+cert=${SSL_CERT_FILE}
 EOF
 else
     echo "The pip config [$PIP_CONF_PATH] file contains the 'cert' entry, skipping"
@@ -46,14 +26,18 @@ if ! cat $NPM_CONFIG_PATH | grep -q cafile; then
     echo "Updating the NPM config [$NPM_CONFIG_PATH] file."
 
     cat << EOF >> /etc/npmrc
-cafile=${CERT_PATH}
+cafile=${SSL_CERT_FILE}
 EOF
 else
-    echo "The NPM config [$NPM_CONFIG_PATH] file contains the 'cafile' entry, skipping."
+    echo "The NPM config [$SSL_CERT_FILE] file contains the 'cafile' entry, skipping."
 fi
+
+echo "$KEYTOOL_CERT_ALIAS" > ${DCFMB_COMMON_DIR}/${FEATURE_NAME}/keytool-alias.txt
 
 if "$UPDATE_CERT_STORES_DURING_BUILD" = "true"; then
     ./update_cert_stores.sh
+else
+    touch ${DCFMB_COMMON_DIR}/${FEATURE_NAME}/update_cert_stores_during_build.mark
 fi
 
 echo Done

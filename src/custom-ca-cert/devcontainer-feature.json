@@ -1,12 +1,12 @@
 {
     "name": "Configure various tools to use custom CA cert",
     "id": "custom-ca-cert",
-    "version": "0.0.2",
-    "description": "Enables several tools to use given custom CA Cert.",
+    "version": "0.0.3",
+    "description": "Enables several tools to use given custom CA Cert. The cert must be placed to [/usr/local/share/ca-certificates/custom-ca-cert.crt] path!",
     "options": {
-        "cert_path": {
-            "default": "",
-            "description": "Path to CA Cert (must be available within container). By default value from SSL_CERT_PATH will be used.",
+        "keytool_cert_alias": {
+            "default": "CustomCA",
+            "description": "An alias to be used for a cert when adding to JVM's keytool",
             "type": "string"
         },
         "update_cert_stores_during_build": {
@@ -17,6 +17,13 @@
     },
     "onCreateCommand": "/devcontainer-feature/michalbachowski/custom-ca-cert/onCreateCommand.sh",
     "containerEnv": {
-		"NODE_OPTIONS": "--use-openssl-ca"
+		"NODE_OPTIONS": "--use-openssl-ca",
+        "CURL_CA_BUNDLE": "/usr/local/share/ca-certificates/custom-ca-cert.crt",
+        "DEVCONTAINER_CUSTOM_CA_CERT_VALUE": "/usr/local/share/ca-certificates/custom-ca-cert.crt",
+        "NODE_EXTRA_CA_CERTS": "/usr/local/share/ca-certificates/custom-ca-cert.crt",
+        "NODE_CONFIG_CAFILE": "/usr/local/share/ca-certificates/custom-ca-cert.crt",
+        "PIP_CERT": "/usr/local/share/ca-certificates/custom-ca-cert.crt",
+        "REQUESTS_CA_BUNDLE": "/usr/local/share/ca-certificates/custom-ca-cert.crt",
+        "SSL_CERT_FILE": "/usr/local/share/ca-certificates/custom-ca-cert.crt"
     }
 }

@@ -29,7 +29,7 @@
 #                   --base-image mcr.microsoft.com/devcontainers/baseubuntu \
 #                   /workspaces/devcontainer-features
 
-# when both env and opt are given - opt wins
+CA_ALIAS="My Alias"
 source _common_tests.sh
 
 # Report results

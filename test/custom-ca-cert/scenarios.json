@@ -1,30 +1,25 @@
 {
-    "from_opt": {
-        "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "custom_alias": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v2",
         "features": {
             "custom-ca-cert": {
-                "cert_path": "/optcert.pem"
-            }
-        }
-    },
-    "from_env": {
-        "image": "bachowskimichal/devcontainer-test-ubuntu:v1",
-        "features": {
-            "custom-ca-cert": {}
-        }
-    },
-    "from_both": {
-        "image": "bachowskimichal/devcontainer-test-ubuntu:v1",
-        "features": {
-            "custom-ca-cert": {
-                "cert_path": "/optcert.pem"
+                "keytool-cert-alias": "My Alias"
             }
         }
     },
     "update_onCreateCommand": {
-        "image": "bachowskimichal/devcontainer-test-ubuntu:v1",
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v2",
         "features": {
             "custom-ca-cert": {
+                "update_cert_stores_during_build": true
+            }
+        }
+    },
+    "custom_alias_and_onCreateCommand": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v2",
+        "features": {
+            "custom-ca-cert": {
+                "keytool-cert-alias": "My Alias",
                 "update_cert_stores_during_build": true
             }
         }

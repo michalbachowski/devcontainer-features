@@ -29,7 +29,6 @@
 #                   --base-image mcr.microsoft.com/devcontainers/baseubuntu \
 #                   /workspaces/devcontainer-features
 
-CERT_PATH='/envcert.pem'
 source _common_tests.sh
 
 function check_env_is_not_duplicated
