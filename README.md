@@ -25,6 +25,14 @@ Note that if you decide to mount the certificate, the effects will be visible af
 
 Initializes the [pre-commit](https://pre-commit.com) for the workspace folder.
 
+## [pre-commit-cache](./src/pre-commit-cache/)
+
+Sets up a common, persistent volume for `pre-commit` cache.
+
+## [sbt-cache](./src/sbt-cache/)
+
+Sets up a common, persistent volume for `sbt` / `coursier` packages.
+
 ## [scalafmt-native](./src/scalafmt-native/)
 
 Installs the [scalafmt-native](https://scalameta.org/scalafmt/docs/installation.html#native-image) (pre-built GraalVm image).
@@ -78,14 +86,21 @@ make sync-files FROM=<source-feature-name> IN=test FILE=test_scripts.sh
 ## Building custom Docker images
 
 There are 2 custom docker images build to support testing.
-
-To re-build them run:
+Once you make some changes, update the version in the `Makefile`[./Makefile] and re-build them by running:
 
 ```bash
 make build-images
 ```
 
-Once the images are pushed correctly, run:
+Then change all of the occurences of old images to point to new tag.
+You can find the occurences by running:
+
+```bash
+grep bachowskimichal/devcontainer-test -R *
+
+```
+
+Re-run local tests for features. If the test passes, push new images by running:
 
 ```bash
 docker login
@@ -108,5 +123,6 @@ make test-scenarios FEATURE=custom-ca-cert
 make test-all FEATURE=sbt-cache
 ```
 
-<Warning>
-Not all features have defined all possible test types (eg. [pre-commit-initialize](./src/pre-commit-initialize/) has only scenario-based tests defined).
+> [!WARNING]
+> Not all features have defined all possible test types (eg. [pre-commit-initialize](./src/pre-commit-initialize/) has only scenario-based tests defined).
+
