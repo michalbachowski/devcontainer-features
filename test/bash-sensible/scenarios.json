@@ -1,6 +1,6 @@
 {
     "non-root-user": {
-        "image": "bachowskimichal/devcontainer-test-ubuntu:v2",
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "remoteUser": "testuser",
         "features": {
             "bash-sensible": {}

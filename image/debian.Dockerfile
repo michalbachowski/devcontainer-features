@@ -21,9 +21,3 @@ COPY \
 # install missing packages
 #
 RUN install_packages curl git zsh
-
-#
-# specify fake cert
-#
-ENV \
-    SSL_CERT_FILE=/envcert.pem

@@ -21,9 +21,6 @@ if ! command -v curl >/dev/null; then
     exit 1
 fi
 
-# the SSL_CERT_FILE=/envcert.pem is used for testing, thus removing it here
-[ "$SSL_CERT_FILE" = "/envcert.pem" ] && unset SSL_CERT_FILE
-
 status=$(curl \
     --fail \
     --location \

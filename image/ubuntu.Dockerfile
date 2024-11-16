@@ -30,9 +30,3 @@ RUN \
     $nanolayer_location \
         install \
         apt-get "curl git zsh"
-
-#
-# specify fake cert
-#
-ENV \
-    SSL_CERT_FILE=/envcert.pem

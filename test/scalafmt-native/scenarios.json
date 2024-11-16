@@ -1,6 +1,6 @@
 {
     "older-version": {
-        "image": "bachowskimichal/devcontainer-test-ubuntu:v2",
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "features": {
             "scalafmt-native": {
                 "version": "3.8.2"

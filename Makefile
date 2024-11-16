@@ -1,4 +1,4 @@
-IMAGE=bachowskimichal/devcontainer-test-ubuntu:v2
+IMAGE=bachowskimichal/devcontainer-test-ubuntu:v3
 IN=src
 FROM=bash-prompt
 FILE=library_scripts.sh
@@ -67,7 +67,7 @@ test-all:
 build-debian:
 	cd image && \
 	docker buildx build \
-		--tag bachowskimichal/devcontainer-test-debian:v2 \
+		--tag bachowskimichal/devcontainer-test-debian:v3 \
 		--file debian.Dockerfile \
 		--push=$(PUSH) \
 		.
@@ -75,7 +75,7 @@ build-debian:
 build-ubuntu:
 	cd image && \
 	docker buildx build \
-		--tag bachowskimichal/devcontainer-test-ubuntu:v2 \
+		--tag bachowskimichal/devcontainer-test-ubuntu:v3 \
 		--file ubuntu.Dockerfile \
 		--push=$(PUSH) \
 		.

@@ -1,6 +1,6 @@
 {
     "custom_alias": {
-        "image": "bachowskimichal/devcontainer-test-ubuntu:v2",
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "features": {
             "custom-ca-cert": {
                 "keytool-cert-alias": "My Alias"
@@ -8,7 +8,7 @@
         }
     },
     "update_onCreateCommand": {
-        "image": "bachowskimichal/devcontainer-test-ubuntu:v2",
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "features": {
             "custom-ca-cert": {
                 "update_cert_stores_during_build": true
@@ -16,7 +16,7 @@
         }
     },
     "custom_alias_and_onCreateCommand": {
-        "image": "bachowskimichal/devcontainer-test-ubuntu:v2",
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "features": {
             "custom-ca-cert": {
                 "keytool-cert-alias": "My Alias",
