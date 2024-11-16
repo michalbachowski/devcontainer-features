@@ -66,7 +66,7 @@ test-all:
 
 build-debian:
 	cd image && \
-	docker build \
+	docker buildx build \
 		--tag bachowskimichal/devcontainer-test-debian:v2 \
 		--file debian.Dockerfile \
 		--push=$(PUSH) \
@@ -74,7 +74,7 @@ build-debian:
 
 build-ubuntu:
 	cd image && \
-	docker build \
+	docker buildx build \
 		--tag bachowskimichal/devcontainer-test-ubuntu:v2 \
 		--file ubuntu.Dockerfile \
 		--push=$(PUSH) \
