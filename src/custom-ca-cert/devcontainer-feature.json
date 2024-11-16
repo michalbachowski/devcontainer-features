@@ -1,7 +1,7 @@
 {
     "name": "Configure various tools to use custom CA cert",
     "id": "custom-ca-cert",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Enables several tools to use given custom CA Cert. The cert must be placed to [/usr/local/share/ca-certificates/custom-ca-cert.crt] path!",
     "options": {
         "keytool_cert_alias": {

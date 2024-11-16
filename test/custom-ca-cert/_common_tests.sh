@@ -11,7 +11,7 @@ MARK_FILE_PATH=${COMMON_DIR}/custom-ca-cert/update_cert_stores_during_build.mark
 
 check "The keytool alias file [$ALIAS_FILE_PATH] exists" bash -c "test -f \"$ALIAS_FILE_PATH\""
 check "The keytool alias file [$ALIAS_FILE_PATH] contains the expected [$CA_ALIAS] alias" bash -c "cat \"$ALIAS_FILE_PATH\" | grep -q \"$CA_ALIAS\""
-check "cert was added to JVM's CACert store" bash -c "keytool -list -cacerts -alias \"$CA_ALIAS\" -storepass changeit || exit 1"
+check "cert was added to JVM's CACert store" bash -c "./keytool-check.sh \"$CA_ALIAS\""
 
 if [ -z "$NO_MARK_FILE" ]; then
     check "The mark file [$MARK_FILE_PATH] exists" bash -c "test -f \"$MARK_FILE_PATH\""
