@@ -16,6 +16,7 @@ jobs:
           - bash-prompt
           - bash-sensible
           - custom-ca-cert
+          - pre-commit-cache
           - sbt-cache
           - scalafmt-native
           - shell-local
@@ -42,6 +43,7 @@ jobs:
           - bash-prompt
           - bash-sensible
           - custom-ca-cert
+          - pre-commit-cache
           - sbt-cache
           - scalafmt-native
           - shell-local
@@ -68,6 +70,7 @@ jobs:
           - bash-prompt
           - bash-sensible
           - custom-ca-cert
+          - pre-commit-cache
           - pre-commit-initialize
           - sbt-cache
           - scalafmt-native

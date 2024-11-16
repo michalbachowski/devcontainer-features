@@ -1,0 +1,9 @@
+{
+    "non-root-user": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v2",
+        "remoteUser": "testuser",
+        "features": {
+            "pre-commit-cache": {}
+        }
+    }
+}

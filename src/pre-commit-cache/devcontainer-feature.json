@@ -1,0 +1,18 @@
+{
+    "name": "pre-commit cache",
+    "id": "pre-commit-cache",
+    "version": "0.0.1",
+    "description": "Prepares a volume to hold pre-commit cache.",
+    "installsAfter": [
+    ],
+    "containerEnv": {
+		"PRE_COMMIT_HOME": "/devcontainer-feature/michalbachowski/pre-commit-cache/cache"
+	},
+    "mounts": [
+        {
+            "source": "pre-commit-cache",
+            "target": "/devcontainer-feature/michalbachowski/pre-commit-cache/cache",
+            "type": "volume"
+        }
+    ]
+}
