@@ -18,6 +18,7 @@ Adds a step to execute custom shell scrip when initializing Bash or Zsh.
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | bash_script | Script to execute when initializing Bash | string | echo Bash > /dev/null |
+| common_script | Script to execute when initializing either Bash or Zsh. By default will add the git-uncommit-all-changes alias, usefull to uncommit all changes made on the branch since creation. You can use the BRANCH_NAME env var to change the main branch. | string | alias git-uncommit-all-changes='git reset --soft \$(git merge-base HEAD \${BASE_BRANCH:-main})' |
 | zsh_script | Script to execute when initializing Zsh. | string | echo Zsh > /dev/null |
 
 Default values to input arguments were added only to satisfy testing.
