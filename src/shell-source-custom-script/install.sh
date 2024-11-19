@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 . ./library_scripts.sh
 
-FEATURE_NAME=shell-local
+FEATURE_NAME=shell-source-custom-script
 
 title $FEATURE_NAME
 

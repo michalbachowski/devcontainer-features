@@ -3,25 +3,23 @@
         "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "remoteUser": "testuser",
         "features": {
-            "shell-local": {
-                "bash_script_path": "script.bash",
-                "zsh_script_path": "script.zsh"
+            "shell-source-custom-script": {
             }
         }
     },
     "only-bash": {
         "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "features": {
-            "shell-local": {
-                "bash_script_path": "script.bash"
+            "shell-source-custom-script": {
+                "zsh_script_path": ""
             }
         }
     },
     "only-zsh": {
         "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "features": {
-            "shell-local": {
-                "zsh_script_path": "script.zsh"
+            "shell-source-custom-script": {
+                "bash_script_path": ""
             }
         }
     }

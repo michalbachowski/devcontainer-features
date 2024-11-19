@@ -38,10 +38,10 @@ Sets up a common, persistent volume for `sbt` / `coursier` packages.
 Installs the [scalafmt-native](https://scalameta.org/scalafmt/docs/installation.html#native-image) (pre-built GraalVm image).
 Requires `curl` installed.
 
-## [shell-local](./src/shell-local/)
+## [shell-source-custom-script](./src/shell-source-custom-script/)
 
 Allows to easily add custom commands to be sourced by default by the `Bash` or `Zsh`.
-The file might be mounted to the container, since the code verifies if the file exists before sourcing it.
+The file might be mounted to the container at runtime, since the code verifies if the file exists before sourcing it.
 
 If you mount the `~/.bashrc` or `~/.zshrc` it is enough to source the `/devcontainer-feature/michalbachowski/bashrc` or `/devcontainer-feature/michalbachowski/zshrc` respectively to enable all installed Bash/Zsh-related features from this repo.
 

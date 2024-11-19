@@ -1,16 +1,16 @@
 {
     "name": "Load local file during shell init",
-    "id": "shell-local",
-    "version": "0.0.2",
+    "id": "shell-source-custom-script",
+    "version": "0.0.1",
     "description": "Adds a step to load (source) custom shell scrip when initializing Bash or Zsh.",
     "options": {
         "bash_script_path": {
-            "default": "",
+            "default": "script.bash",
             "description": "Path to a script to be loaded when initializing Bash.",
             "type": "string"
         },
         "zsh_script_path": {
-            "default": "",
+            "default": "script.zsh",
             "description": "Path to a script to be loaded when initializing Zsh.",
             "type": "string"
         }
@@ -19,5 +19,8 @@
         "ghcr.io/devcontainers/features/common-utils",
         "ghcr.io/michalbachowski/devcontainer-features/bash-sensible",
         "ghcr.io/stuartleeks/dev-container-features/shell-history"
+    ],
+    "legacyIds": [
+        "shell-local"
     ]
 }
