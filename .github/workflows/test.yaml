@@ -19,6 +19,7 @@ jobs:
           - pre-commit-cache
           - sbt-cache
           - scalafmt-native
+          - shell-execute-custom-script
           - shell-source-custom-script
           - snyk-cli
           - zsh-prompt-currenttime
@@ -46,6 +47,7 @@ jobs:
           - pre-commit-cache
           - sbt-cache
           - scalafmt-native
+          - shell-execute-custom-script
           - shell-source-custom-script
           - snyk-cli
           - zsh-prompt-currenttime
@@ -74,6 +76,7 @@ jobs:
           - pre-commit-initialize
           - sbt-cache
           - scalafmt-native
+          - shell-execute-custom-script
           - shell-source-custom-script
           - snyk-cli
           - zsh-prompt-currenttime
