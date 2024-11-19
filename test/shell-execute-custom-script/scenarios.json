@@ -16,12 +16,36 @@
             }
         }
     },
+    "only-bash-and-common": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "features": {
+            "shell-execute-custom-script": {
+                "zsh_script": ""
+            }
+        }
+    },
+    "only-bash-and-zsh": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "features": {
+            "shell-execute-custom-script": {
+                "common_script": ""
+            }
+        }
+    },
     "only-zsh": {
         "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "features": {
             "shell-execute-custom-script": {
                 "bash_script": "",
                 "common_script": ""
+            }
+        }
+    },
+    "only-zsh-and-common": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "features": {
+            "shell-execute-custom-script": {
+                "bash_script": ""
             }
         }
     },
