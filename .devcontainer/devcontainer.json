@@ -22,8 +22,6 @@
         }
     },
     "features": {
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-        "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
 		"ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
 			"plugins": "colorize zsh-autosuggestions zsh-syntax-highlighting",
 			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting.git"
@@ -31,7 +29,9 @@
         "ghcr.io/devcontainers/features/common-utils:2.5.2": {
 			"configureZshAsDefaultShell": true,
 			"installOhMyZshConfig": true
-		}
+		},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
     },
     "remoteUser": "node",
     "updateContentCommand": "npm install -g @devcontainers/cli"
