@@ -31,6 +31,7 @@
 
 HAS_BASH="1"
 HAS_ZSH="0"
+HAS_COMMON="0"
 source _common_tests.sh
 
 # Report results

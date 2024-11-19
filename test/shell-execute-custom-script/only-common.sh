@@ -30,8 +30,8 @@
 #                   /workspaces/devcontainer-features
 
 HAS_BASH="0"
-HAS_ZSH="1"
-HAS_COMMON="0"
+HAS_ZSH="0"
+HAS_COMMON="1"
 source _common_tests.sh
 
 # Report results

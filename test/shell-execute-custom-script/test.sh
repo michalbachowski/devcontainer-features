@@ -31,6 +31,7 @@
 
 HAS_BASH="1"
 HAS_ZSH="1"
+HAS_COMMON="1"
 
 source _common_tests.sh
 

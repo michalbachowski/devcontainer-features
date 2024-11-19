@@ -1,5 +1,5 @@
 {
-    "non-root-user-both-scripts": {
+    "non-root-user-all-scripts": {
         "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "remoteUser": "testuser",
         "features": {
@@ -11,7 +11,8 @@
         "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "features": {
             "shell-execute-custom-script": {
-                "zsh_script": ""
+                "zsh_script": "",
+                "common_script": ""
             }
         }
     },
@@ -19,7 +20,17 @@
         "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "features": {
             "shell-execute-custom-script": {
-                "bash_script": ""
+                "bash_script": "",
+                "common_script": ""
+            }
+        }
+    },
+    "only-common": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "features": {
+            "shell-execute-custom-script": {
+                "bash_script": "",
+                "zsh_script": ""
             }
         }
     }

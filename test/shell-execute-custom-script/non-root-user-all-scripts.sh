@@ -29,9 +29,10 @@
 #                   --base-image mcr.microsoft.com/devcontainers/baseubuntu \
 #                   /workspaces/devcontainer-features
 
-HAS_BASH="0"
+NON_ROOT_USER="1"
+HAS_BASH="1"
 HAS_ZSH="1"
-HAS_COMMON="0"
+HAS_COMMON="1"
 source _common_tests.sh
 
 # Report results

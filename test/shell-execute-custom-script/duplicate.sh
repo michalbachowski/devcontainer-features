@@ -31,7 +31,15 @@
 
 HAS_BASH="1"
 HAS_ZSH="1"
+HAS_COMMON="1"
+
 source _common_tests.sh
+
+check "The feature's [$BASH_SCRIPT_PATH] file contains ONLY ONE reference to the [$BASH_SCRIPT] script" bash -c "test \$(cat $BASH_SCRIPT_PATH | grep -F \"$BASH_SCRIPT\" | wc -l) -eq '1'"
+check "The feature's [$ZSH_SCRIPT_PATH] file contains ONLY ONE reference to the [$ZSH_SCRIPT] script" bash -c "test \$(cat $ZSH_SCRIPT_PATH | grep -F \"$ZSH_SCRIPT\" | wc -l) -eq '1'"
+
+check "The feature's [$BASH_SCRIPT_PATH] file contains ONLY ONE reference to the [$COMMON_SCRIPT] script" bash -c "test \$(cat $BASH_SCRIPT_PATH | grep -F \"$COMMON_SCRIPT\" | wc -l) -eq '1'"
+check "The feature's [$ZSH_SCRIPT_PATH] file contains ONLY ONE reference to the [$COMMON_SCRIPT] script" bash -c "test \$(cat $ZSH_SCRIPT_PATH | grep -F \"$COMMON_SCRIPT\" | wc -l) -eq '1'"
 
 check "The common [$BASHRC_FILE_PATH] file contains ONLY ONE reference to the feature's [$BASH_SCRIPT_PATH] file" bash -c "test \$(cat $BASHRC_FILE_PATH | grep '$BASH_SCRIPT_PATH' | grep source | wc -l) -eq '1'"
 check "The common [$ZSHRC_FILE_PATH] file contains ONLY ONE reference to the feature's [$ZSH_SCRIPT_PATH] file" bash -c "test \$(cat $ZSHRC_FILE_PATH | grep '$ZSH_SCRIPT_PATH' | grep source | wc -l) -eq '1'"
