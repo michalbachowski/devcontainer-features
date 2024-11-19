@@ -1,0 +1,26 @@
+{
+    "non-root-user-both-scripts": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "remoteUser": "testuser",
+        "features": {
+            "shell-execute-custom-script": {
+            }
+        }
+    },
+    "only-bash": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "features": {
+            "shell-execute-custom-script": {
+                "zsh_script": ""
+            }
+        }
+    },
+    "only-zsh": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "features": {
+            "shell-execute-custom-script": {
+                "bash_script": ""
+            }
+        }
+    }
+}

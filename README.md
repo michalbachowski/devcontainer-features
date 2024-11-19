@@ -38,6 +38,10 @@ Sets up a common, persistent volume for `sbt` / `coursier` packages.
 Installs the [scalafmt-native](https://scalameta.org/scalafmt/docs/installation.html#native-image) (pre-built GraalVm image).
 Requires `curl` installed.
 
+## [shell-execute-custom-script](./src/shell-execute-custom-script/)
+
+Allows to easily add custom commands to be sourced by default by the `Bash` or `Zsh`.
+
 ## [shell-source-custom-script](./src/shell-source-custom-script/)
 
 Allows to easily add custom commands to be sourced by default by the `Bash` or `Zsh`.
