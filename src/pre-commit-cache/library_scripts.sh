@@ -85,11 +85,15 @@ function add_feature_shell_file
     fi
 
     # source custom script in custom <shell>rc
-    echo "Adding the call (source) of the [$custom_script_path] custom script to the [$DEST_SHELLRC_PATH] common shell config file."
-    echo "[[ \"\$-\" = *i* ]] && [ -f '$custom_script_path' ] && source '$custom_script_path'" >> $DEST_SHELLRC_PATH
-    chown root "$DEST_SHELLRC_PATH"
-    chmod 0555 "$DEST_SHELLRC_PATH"
-    echo "The details of the [$DEST_SHELLRC_PATH] are: $(ls -la $DEST_SHELLRC_PATH)"
+    if [ ! -f "$DEST_SHELLRC_PATH" ] || ! cat "$DEST_SHELLRC_PATH" | grep "$custom_script_path" | grep -q source; then
+        echo "Adding the call (source) of the [$custom_script_path] custom script to the [$DEST_SHELLRC_PATH] common shell config file."
+        echo "[[ \"\$-\" = *i* ]] && [ -f '$custom_script_path' ] && source '$custom_script_path'" >> $DEST_SHELLRC_PATH
+        chown root "$DEST_SHELLRC_PATH"
+        chmod 0555 "$DEST_SHELLRC_PATH"
+        echo "The details of the [$DEST_SHELLRC_PATH] are: $(ls -la $DEST_SHELLRC_PATH)"
+    else
+        echo "The call (source) of the [$custom_script_path] common shell config has already been added to the [$DEST_SHELLRC_PATH] user shell config file, skipping."
+    fi
 
     # source custom <shell>rc in the user's .<shell>rc
     if [ ! -f "$user_shellrc_path" ] || ! cat "$user_shellrc_path" | grep "$DEST_SHELLRC_PATH" | grep -q source; then
