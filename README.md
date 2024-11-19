@@ -7,12 +7,10 @@ Some small features to avoid duplication on my daily work.
 ## [bash-prompt](./src/bash-prompt/)
 
 Fancy 2-row bash prompt.
-If you mount the `~/.basrc` it is enough to source the `/devcontainer-feature/michalbachowski/bashrc` to enable all installed Bash-related features from this repo.
 
 ## [bash-sensible](./src/bash-sensible/)
 
 Adds the [sensible-bash](https://github.com/mrzool/bash-sensible/) to the `bashrc`.
-If you mount the `~/.basrc` it is enough to source the `/devcontainer-feature/michalbachowski/bashrc` to enable all installed Bash-related features from this repo.
 
 ## [custom-ca-cert](./src/custom-ca-cert/)
 
@@ -47,8 +45,6 @@ Allows to easily add custom commands to be sourced by default by the `Bash` or `
 Allows to easily add custom commands to be sourced by default by the `Bash` or `Zsh`.
 The file might be mounted to the container at runtime, since the code verifies if the file exists before sourcing it.
 
-If you mount the `~/.bashrc` or `~/.zshrc` it is enough to source the `/devcontainer-feature/michalbachowski/bashrc` or `/devcontainer-feature/michalbachowski/zshrc` respectively to enable all installed Bash/Zsh-related features from this repo.
-
 ## [snyk-cli](./src/snyk-cli/)
 
 Installs the [Snyk CLI](https://docs.snyk.io/snyk-cli/install-or-update-the-snyk-cli) from binary.
@@ -57,4 +53,3 @@ Requires `curl` installed.
 ## [zsh-prompt-currenttime](./src/zsh-prompt-currenttime/)
 
 Adds current time to the right side of the `Zsh` prompt (`$RPS1`)
-If you mount the `~/.zshrc` it is enough to source the `/devcontainer-feature/michalbachowski/zshrc` to enable all installed Zsh-related features from this repo.
