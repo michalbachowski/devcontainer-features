@@ -16,6 +16,7 @@ jobs:
           - bash-prompt
           - bash-sensible
           - custom-ca-cert
+          - detect-secrets
           - pre-commit-cache
           - sbt-cache
           - scalafmt-native
@@ -44,6 +45,7 @@ jobs:
           - bash-prompt
           - bash-sensible
           - custom-ca-cert
+          - detect-secrets
           - pre-commit-cache
           - sbt-cache
           - scalafmt-native
@@ -72,6 +74,7 @@ jobs:
           - bash-prompt
           - bash-sensible
           - custom-ca-cert
+          - detect-secrets
           - pre-commit-cache
           - pre-commit-initialize
           - sbt-cache

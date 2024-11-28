@@ -1,0 +1,10 @@
+{
+    "older-version": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "features": {
+            "detect-secrets": {
+                "version": "1.4.0"
+            }
+        }
+    }
+}
