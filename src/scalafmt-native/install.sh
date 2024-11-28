@@ -7,7 +7,7 @@ INSTALLER_LOCATION=/tmp/install-scalafmt-native.sh
 
 echo "Activating feature [scalafmt-native]"
 
-if -f $INSTALL_LOCATION; then
+if [ -f $INSTALL_LOCATION ]; then
     echo "The [scalafmt-native] binary exists, skipping installation."
 fi
 
