@@ -1,0 +1,13 @@
+{
+    "name": "detect-secrets (via pipx)",
+    "id": "snyk-cli",
+    "version": "0.0.1",
+    "description": "[detect-secrets](https://github.com/Yelp/detect-secrets) is module for detecting secrets within a code base.",
+    "options": {
+        "version": {
+            "default": "1.5.0",
+            "description": "Select the version to install.",
+            "type": "string"
+        }
+    }
+}
