@@ -19,6 +19,10 @@ The cert might be given by `SSL_CERT_FILE` environment variable or as a explicit
 The feature **will not** copy or create the cert - it is user's duty to deliver the cert to the container (by adding it to the image or mount).
 Note that if you decide to mount the certificate, the effects will be visible after the setup is done and the cert is available to the container processes.
 
+## [detect-secrets](./src/detect-secrets/)
+
+The feature installs the [detect-secrets](https://github.com/Yelp/detect-secrets) module via pipx.
+
 ## [pre-commit-initialize](./src/pre-commit-initialize/)
 
 Initializes the [pre-commit](https://pre-commit.com) for the workspace folder.
