@@ -64,10 +64,11 @@ function test_binary_feature
     script_path="$1"
     script_name="$(basename $script_path)"
     script_version="$2"
+    user="${3:-root}"
 
     check "binary exists" bash -c "test -f $script_path"
     check "binary executable" bash -c "test -x $script_path"
-    check "binary is owned by root:root" bash -c "ls -l $script_path | grep  'root root'"
+    check "binary is owned by $user" bash -c "test \"\$(whoami)\" = \"$user\" && test -O $script_path || exit 1"
     check "binary is available on PATH" bash -c "command -v $script_name >/dev/null || exit 1"
     check "binary is in correct version" bash -c "$script_name --version | grep $script_version"
 }
