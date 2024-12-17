@@ -1,5 +1,4 @@
-
-# detect-secrets (via pipx) (snyk-cli)
+# detect-secrets (via pipx) (detect-secrets)
 
 [detect-secrets](https://github.com/Yelp/detect-secrets) is module for detecting secrets within a code base.
 
@@ -7,7 +6,7 @@
 
 ```json
 "features": {
-    "ghcr.io/michalbachowski/devcontainer-features/snyk-cli:0": {}
+    "ghcr.io/michalbachowski/devcontainer-features/detect-secrets:0": {}
 }
 ```
 
