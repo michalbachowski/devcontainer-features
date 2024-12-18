@@ -23,6 +23,7 @@ jobs:
           - shell-execute-custom-script
           - shell-source-custom-script
           - snyk-cli
+          - zsh-completion-setup
           - zsh-prompt-currenttime
         baseImage:
           - bachowskimichal/devcontainer-test-ubuntu:v3
@@ -52,6 +53,7 @@ jobs:
           - shell-execute-custom-script
           - shell-source-custom-script
           - snyk-cli
+          - zsh-completion-setup
           - zsh-prompt-currenttime
         baseImage:
           - bachowskimichal/devcontainer-test-ubuntu:v3
@@ -82,6 +84,7 @@ jobs:
           - shell-execute-custom-script
           - shell-source-custom-script
           - snyk-cli
+          - zsh-completion-setup
           - zsh-prompt-currenttime
     steps:
       - uses: actions/checkout@v4

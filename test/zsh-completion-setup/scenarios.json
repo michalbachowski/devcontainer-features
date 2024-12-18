@@ -1,0 +1,23 @@
+{
+    "non-root-user": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "remoteUser": "testuser",
+        "features": {
+            "zsh-completion-setup": {}
+        }
+    },
+    "with-zsh-installed": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "features": {
+            "ghcr.io/devcontainers/features/common-utils:2.5.2": {
+                "configureZshAsDefaultShell": true,
+                "installOhMyZshConfig": true
+            },
+            "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+                "plugins": "colorize timer zsh-autosuggestions zsh-syntax-highlighting",
+                "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting.git"
+            },
+            "zsh-completion-setup": {}
+        }
+    }
+}
