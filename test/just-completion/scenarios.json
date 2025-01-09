@@ -1,0 +1,59 @@
+{
+    "default-test": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "features": {
+            "ghcr.io/guiyomh/features/just:0.1.0": {
+                "version": "1.38.0"
+            },
+            "zsh-completion-setup": {},
+            "just-completion": {}
+        },
+        "overrideFeatureInstallOrder": [
+            "./zsh-completion-setup"
+        ]
+    },
+    "non-root-user": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "remoteUser": "testuser",
+        "features": {
+            "ghcr.io/guiyomh/features/just:0.1.0": {
+                "version": "1.38.0"
+            },
+            "zsh-completion-setup": {},
+            "just-completion": {}
+        },
+        "overrideFeatureInstallOrder": [
+            "./zsh-completion-setup"
+        ]
+    },
+    "zsh-only": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "features": {
+            "ghcr.io/guiyomh/features/just:0.1.0": {
+                "version": "1.38.0"
+            },
+            "zsh-completion-setup": {},
+            "just-completion": {
+                "for_bash": false
+            }
+        },
+        "overrideFeatureInstallOrder": [
+            "./zsh-completion-setup"
+        ]
+    },
+    "bash-only": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "features": {
+            "ghcr.io/guiyomh/features/just:0.1.0": {
+                "version": "1.38.0"
+            },
+            "zsh-completion-setup": {},
+            "just-completion": {
+                "for_zsh": false
+            }
+        },
+        "overrideFeatureInstallOrder": [
+            "./zsh-completion-setup"
+        ]
+    }
+}
