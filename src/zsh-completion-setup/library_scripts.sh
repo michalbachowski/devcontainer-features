@@ -11,8 +11,8 @@ function title
 
 function set_common_ownership
 {
-    chown -R root "$1"
-    chmod -R 0555 "$1"
+    chown root "$1"
+    chmod 0555 "$1"
 }
 
 function create_dir
