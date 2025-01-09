@@ -17,6 +17,7 @@
             },
             "extensions": [
                 "mads-hartmann.bash-ide-vscode@1.43.0",
+                "nefrob.vscode-just-syntax@0.6.0",
                 "yzhang.markdown-all-in-one@3.6.2"
             ]
         }
@@ -32,6 +33,9 @@
 			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting.git"
 		},
 		"ghcr.io/eliises/devcontainer-features/devcontainers-cli:1": {},
+        "ghcr.io/guiyomh/features/just:0.1.0": {
+            "version": "1.38.0"
+        },
         "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
     },
     "remoteUser": "node"
