@@ -23,6 +23,10 @@ Note that if you decide to mount the certificate, the effects will be visible af
 
 The feature installs the [detect-secrets](https://github.com/Yelp/detect-secrets) module via pipx.
 
+## [just-completion](./src/just-completion/)
+
+The feature installs Bash and/or Zsh completion for the [`just`](https://just.systems/) tool.
+
 ## [pre-commit-initialize](./src/pre-commit-initialize/)
 
 Initializes the [pre-commit](https://pre-commit.com) for the workspace folder.
@@ -53,6 +57,10 @@ The file might be mounted to the container at runtime, since the code verifies i
 
 Installs the [Snyk CLI](https://docs.snyk.io/snyk-cli/install-or-update-the-snyk-cli) from binary.
 Requires `curl` installed.
+
+## [zsh-completion-setup](./src/zsh-completion-setup/)
+
+Configures completion for Zsh.
 
 ## [zsh-prompt-currenttime](./src/zsh-prompt-currenttime/)
 
