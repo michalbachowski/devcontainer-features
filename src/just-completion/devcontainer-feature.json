@@ -1,0 +1,23 @@
+{
+    "name": "just tool completion",
+    "id": "just-completion",
+    "version": "0.0.1",
+    "description": "Setup completion for the [just] tool",
+    "options": {
+        "for_zsh": {
+            "default": true,
+            "description": "Whether to install completion for Zsh",
+            "type": "boolean"
+        },
+        "for_bash": {
+            "default": true,
+            "description": "Whether to install completion for Bash",
+            "type": "boolean"
+        }
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils",
+        "ghcr.io/guiyomh/features/just",
+        "ghcr.io/michalbachowski/devcontainer-features/zsh-completion-setup"
+    ]
+}

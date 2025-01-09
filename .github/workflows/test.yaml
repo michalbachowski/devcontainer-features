@@ -77,6 +77,7 @@ jobs:
           - bash-sensible
           - custom-ca-cert
           - detect-secrets
+          - just-completion
           - pre-commit-cache
           - pre-commit-initialize
           - sbt-cache
