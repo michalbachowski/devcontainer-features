@@ -4,7 +4,7 @@
     "version": "0.0.1",
     "description": "Setup completion for Zsh. Exposes ZSH_AUTOCOMPLETE_PATH env variable that points to directory which should contain completion scripts.",
     "containerEnv": {
-		  "ZSH_AUTOCOMPLETE_PATH": "/devcontainer-feature/michalbachowski/zas-autocomplete/completions"
+		  "ZSH_AUTOCOMPLETE_PATH": "/devcontainer-feature/michalbachowski/zsh-completion-setup/completions"
     },
     "installsAfter": [
       "ghcr.io/devcontainers/features/common-utils"
