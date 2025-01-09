@@ -9,13 +9,22 @@ function title
     echo "Activating feature [$feature_name]"
 }
 
+function set_common_ownership
+{
+    chown root "$1"
+    chmod 0555 "$1"
+}
+
+function create_dir
+{
+    mkdir -p "$1"
+    set_common_ownership "$1"
+}
+
 function ensure_common_dir
 {
     # create common dir
-    mkdir -p $DCFMB_COMMON_DIR
-    chown -R root $DCFMB_COMMON_DIR
-    chmod -R 0555 $DCFMB_COMMON_DIR
-
+    create_dir "$DCFMB_COMMON_DIR"
 }
 
 function copy_feature_files
@@ -36,8 +45,7 @@ function copy_feature_files
 
     echo "For the [$feature_name] feature copying source [$feature_files_source_path] to the [$feature_files_dest_path] feature cache path"
     cp -r "$feature_files_source_path" "$feature_files_dest_path"
-    chown root "$feature_files_dest_path"
-    chmod 0555 "$feature_files_dest_path"
+    set_common_ownership "$feature_files_dest_path"
 
     set_env "DCFMB_${env_name_suffix}_PATH" "$feature_files_dest_path"
 
@@ -88,8 +96,7 @@ function add_feature_shell_file
     if [ ! -f "$DEST_SHELLRC_PATH" ] || ! cat "$DEST_SHELLRC_PATH" | grep "$custom_script_path" | grep -q source; then
         echo "Adding the call (source) of the [$custom_script_path] custom script to the [$DEST_SHELLRC_PATH] common shell config file."
         echo "[[ \"\$-\" = *i* ]] && [ -f '$custom_script_path' ] && source '$custom_script_path'" >> $DEST_SHELLRC_PATH
-        chown root "$DEST_SHELLRC_PATH"
-        chmod 0555 "$DEST_SHELLRC_PATH"
+        set_common_ownership "$DEST_SHELLRC_PATH"
         echo "The details of the [$DEST_SHELLRC_PATH] are: $(ls -la $DEST_SHELLRC_PATH)"
     else
         echo "The call (source) of the [$custom_script_path] common shell config has already been added to the [$DEST_SHELLRC_PATH] user shell config file, skipping."
