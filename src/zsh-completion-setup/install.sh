@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-FEATURE_NAME=zsh-autocomplete
+FEATURE_NAME=zsh-completion-setup
 SCRIPT_NAME=autocomplete.zsh
 USER_SHELL=zsh
 

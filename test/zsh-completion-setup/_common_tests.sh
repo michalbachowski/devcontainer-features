@@ -1,6 +1,6 @@
 source test_scripts.sh
 
-FEATURE_NAME=zsh-autocomplete
+FEATURE_NAME=zsh-completion-setup
 PROMPT_FILE_NAME="$COMMON_DIR/$FEATURE_NAME/autocomplete.zsh"
 USER_SHELL=zsh
 
