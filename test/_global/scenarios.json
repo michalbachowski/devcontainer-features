@@ -5,6 +5,9 @@
         "features": {
             "bash-prompt": {},
             "bash-sensible": {}
-        }
+        },
+        "overrideFeatureInstallOrder": [
+            "./bash-sensible"
+        ]
     }
 }
