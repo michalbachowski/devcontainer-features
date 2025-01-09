@@ -1,3 +1,4 @@
+
 # detect-secrets (via pipx) (detect-secrets)
 
 [detect-secrets](https://github.com/Yelp/detect-secrets) is module for detecting secrets within a code base.
