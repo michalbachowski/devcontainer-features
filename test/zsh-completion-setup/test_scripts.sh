@@ -70,7 +70,12 @@ function test_binary_feature
     check "binary executable" bash -c "test -x $script_path"
     check "binary is owned by $user" bash -c "test \"\$(whoami)\" = \"$user\" && test -O $script_path || exit 1"
     check "binary is available on PATH" bash -c "command -v $script_name >/dev/null || exit 1"
-    check "binary is in correct version" bash -c "$script_name --version | grep $script_version"
+
+    if [ -n "${script_version}" ]; then
+        check "binary is in correct version" bash -c "$script_name --version | grep $script_version"
+    else
+        echo "Version not given, skipping version validation"
+    fi
 }
 
 function check_env_is_set
