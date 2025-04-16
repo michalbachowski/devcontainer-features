@@ -13,6 +13,7 @@ jobs:
     strategy:
       matrix:
         features:
+          - adr-tools
           - bash-prompt
           - bash-sensible
           - custom-ca-cert
@@ -43,6 +44,7 @@ jobs:
     strategy:
       matrix:
         features:
+          - adr-tools
           - bash-prompt
           - bash-sensible
           - custom-ca-cert
@@ -73,6 +75,7 @@ jobs:
     strategy:
       matrix:
         features:
+          - adr-tools
           - bash-prompt
           - bash-sensible
           - custom-ca-cert

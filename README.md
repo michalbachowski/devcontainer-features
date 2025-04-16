@@ -4,6 +4,10 @@ Some small features to avoid duplication on my daily work.
 
 # Contents
 
+## [adr-tools](./src/adr-tools/)
+
+Installs the [adr-tools](https://github.com/npryce/adr-tools/).
+
 ## [bash-prompt](./src/bash-prompt/)
 
 Fancy 2-row bash prompt.

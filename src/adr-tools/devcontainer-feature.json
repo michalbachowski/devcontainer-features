@@ -1,0 +1,16 @@
+{
+    "name": "adr-tools (via curl)",
+    "id": "adr-tools",
+    "version": "0.0.1",
+    "description": "Installs adr-tools by downloading artifact from GitHub",
+    "options": {
+        "version": {
+            "default": "3.0.0",
+            "description": "Select the version to install.",
+            "type": "string"
+        }
+    },
+    "containerEnv": {
+		"PATH": "/usr/local/bin/adr-tools/:${PATH}"
+	}
+}
