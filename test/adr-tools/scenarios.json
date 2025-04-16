@@ -1,0 +1,10 @@
+{
+    "older-version": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "features": {
+            "adr-tools": {
+                "version": "2.2.0"
+            }
+        }
+    }
+}
