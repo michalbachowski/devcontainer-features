@@ -27,6 +27,11 @@ Note that if you decide to mount the certificate, the effects will be visible af
 
 The feature installs the [detect-secrets](https://github.com/Yelp/detect-secrets) module via pipx.
 
+## [git-commit-signing](./src/git-commit-signing/)
+
+Sets local git repository to sign & verify commits.
+Does NOT 
+
 ## [just-completion](./src/just-completion/)
 
 The feature installs Bash and/or Zsh completion for the [`just`](https://just.systems/) tool.
