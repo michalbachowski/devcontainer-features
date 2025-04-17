@@ -1,0 +1,68 @@
+{
+    "non-root-user": {
+        "features": {
+            "git-commit-signing": {
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "postStartCommand": "git init . && git config --global --add safe.directory $(pwd)",
+        "remoteUser": "testuser"
+    },
+    "format-x509": {
+        "features": {
+            "git-commit-signing": {
+                "key_format": "x509"
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "postStartCommand": "git init . && git config --global --add safe.directory $(pwd)"
+    },
+    "format-gpg": {
+        "features": {
+            "git-commit-signing": {
+                "key_format": "gpg"
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "postStartCommand": "git init . && git config --global --add safe.directory $(pwd)"
+    },
+    "no-allowed-signers": {
+        "features": {
+            "git-commit-signing": {
+                "allowed_signers_file": ""
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "postStartCommand": "git init . && git config --global --add safe.directory $(pwd)"
+    },
+    "allowed-signers-and-no-force-verify-on-merge": {
+        "features": {
+            "git-commit-signing": {
+                "force_verification_on_merge": false
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "postStartCommand": "git init . && git config --global --add safe.directory $(pwd)"
+
+    },
+    "no-allowed-signers-and-no-force-verify-on-merge": {
+        "features": {
+            "git-commit-signing": {
+                "allowed_signers_file": "",
+                "force_verification_on_merge": false
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "postStartCommand": "git init . && git config --global --add safe.directory $(pwd)"
+    },
+    "no-allowed-signers-and-force-verify-on-merge": {
+        "features": {
+            "git-commit-signing": {
+                "allowed_signers_file": "",
+                "force_verification_on_merge": true
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "postStartCommand": "git init . && git config --global --add safe.directory $(pwd)"
+    }
+}

@@ -80,6 +80,7 @@ jobs:
           - bash-sensible
           - custom-ca-cert
           - detect-secrets
+          - git-commit-signing
           - just-completion
           - pre-commit-cache
           - pre-commit-initialize
