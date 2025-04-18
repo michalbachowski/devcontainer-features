@@ -8,6 +8,8 @@ SETUP_FILE_NAME="git-setup.sh"
 
 title "${FEATURE_NAME}"
 
+echo "${REPO_PATH}"
+
 if ! command -v git >/dev/null; then
     echo ""
     echo "========================"
@@ -39,7 +41,7 @@ if [ -n "$ALLOWED_SIGNERS_FILE" ]; then
     set-git-config log.showSignature true
 fi
 
-if [ "$FORCE_VERIFICATION_ON_MERGE" == 'true' ] || [ -n "$ALLOWED_SIGNERS_FILE" ]; then
+if [ "$FORCE_VERIFICATION_ON_MERGE" == 'true' ]; then
     set-git-config merge.verifySignatures true
 fi
 
