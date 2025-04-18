@@ -8,52 +8,39 @@ SETUP_FILE_NAME="git-setup.sh"
 
 title "${FEATURE_NAME}"
 
-copy_feature_files feature_cache_dir "${FEATURE_NAME}"
+if ! command -v git >/dev/null; then
+    echo ""
+    echo "========================"
+    echo "Command [git] not found. Please install it first!"
+    echo ""
+    echo "========================"
+    echo ""
+    exit 1
+fi
 
-DEST_FILE="${feature_cache_dir}/${SETUP_FILE_NAME}"
-
-function write-git-config
+function set-git-config
 {
     local option="$1"
     local value="$2"
-    echo "git config '${option}' '${value}'" >> "${DEST_FILE}"
+    git config --system "${option}" "${value}"
 }
 
-if [ -f "${DEST_FILE}" ]; then
-    echo "The [${FEATURE_NAME}] binary exists, skipping installation."
-fi
-
-cat > "${DEST_FILE}" \
-<< EOF
-#!/bin/sh
-
-if [ ! -d "./.git" ]; then
-    echo "Not a git directory - Git signing was NOT setup for you!";
-    exit 1;
-fi
-
-set -e
-EOF
-
-set_common_ownership "${DEST_FILE}"
-chmod +x "${DEST_FILE}"
-
-write-git-config commit.gpgsign true
-write-git-config gpg.format "$KEY_FORMAT"
-write-git-config tag.gpgsign true
-write-git-config user.signingkey "$SIGNING_KEY"
+set-git-config commit.gpgsign true
+set-git-config gpg.format "$KEY_FORMAT"
+set-git-config tag.gpgsign true
+set-git-config user.signingkey "$SIGNING_KEY"
 
 if [ "${KEY_FORMAT}" == 'x509' ]; then
-    write-git-config gpg.x509.program smimesign
+    set-git-config gpg.x509.program smimesign
 fi
 
 if [ -n "$ALLOWED_SIGNERS_FILE" ]; then
-    write-git-config gpg.ssh.allowedSignersFile "$ALLOWED_SIGNERS_FILE"
-    write-git-config log.showSignature true
+    set-git-config gpg.ssh.allowedSignersFile "$ALLOWED_SIGNERS_FILE"
+    set-git-config log.showSignature true
 fi
 
 if [ "$FORCE_VERIFICATION_ON_MERGE" == 'true' ] || [ -n "$ALLOWED_SIGNERS_FILE" ]; then
-    write-git-config merge.verifySignatures true
+    set-git-config merge.verifySignatures true
 fi
 
 echo Done
