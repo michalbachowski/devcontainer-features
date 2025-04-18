@@ -1,7 +1,4 @@
 {
-    "containerEnv": {
-		"REPO_PATH": "${containerWorkspaceFolder}"
-	},
     "description": "Sets up container's git to sign & verify commits (will use --system not to interfere with local- or user-config).",
     "id": "git-commit-signing",
     "installsAfter": [
@@ -11,13 +8,13 @@
     "name": "git-commit-signing",
     "options": {
         "allowed_signers_file": {
-            "default": "./allowed_signers",
+            "default": "",
             "description": "Path to file containing list of allowed signers. Leave blank if you don't have one. Will be put as-is to git configuration. Learn how to create one: https://docs.gitlab.com/user/project/repository/signed_commits/ssh/#verify-commits-locally",
             "type": "string"
         },
         "force_verification_on_merge": {
             "default": true,
-            "description": "Forces signature verification when merging changes. Requires 'allowed_signers_file' to be set.",
+            "description": "Enables signature verification when merging changes. In order to work, the feature requires to also configure 'gpg.ssh.allowedSignersFile', but it will NOT be verified by the feature (you either set 'allowed_signers_file' option for this feature or setup git on your own).",
             "type": "boolean"
         },
         "key_format": {
@@ -36,5 +33,5 @@
             "type": "string"
         }
     },
-    "version": "0.0.2"
+    "version": "0.0.3"
 }

@@ -23,17 +23,28 @@
         },
         "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
     },
-    "no-allowed-signers": {
+    "custom-allowed-signers": {
         "features": {
             "git-commit-signing": {
-                "allowed_signers_file": ""
+                "allowed_signers_file": "/bar"
             }
         },
         "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
     },
+    "allowed-signers-and-force-verify-on-merge": {
+        "features": {
+            "git-commit-signing": {
+                "allowed_signers_file": "/foo",
+                "force_verification_on_merge": true
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
+
+    },
     "allowed-signers-and-no-force-verify-on-merge": {
         "features": {
             "git-commit-signing": {
+                "allowed_signers_file": "/foo",
                 "force_verification_on_merge": false
             }
         },
@@ -43,7 +54,6 @@
     "no-allowed-signers-and-no-force-verify-on-merge": {
         "features": {
             "git-commit-signing": {
-                "allowed_signers_file": "",
                 "force_verification_on_merge": false
             }
         },
@@ -52,7 +62,6 @@
     "no-allowed-signers-and-force-verify-on-merge": {
         "features": {
             "git-commit-signing": {
-                "allowed_signers_file": "",
                 "force_verification_on_merge": true
             }
         },
