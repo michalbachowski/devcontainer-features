@@ -2,7 +2,7 @@
     "containerEnv": {
 		"REPO_PATH": "${containerWorkspaceFolder}"
 	},
-    "description": "Sets up local git to sign & verify commits",
+    "description": "Sets up container's git to sign & verify commits (will use --system not to interfere with local- or user-config).",
     "id": "git-commit-signing",
     "installsAfter": [
         "ghcr.io/cirolosapio/devcontainers-features/alpine-git",
@@ -36,6 +36,5 @@
             "type": "string"
         }
     },
-    "postAttachCommand": "/devcontainer-feature/michalbachowski/git-commit-signing/git-setup.sh",
-    "version": "0.0.1"
+    "version": "0.0.2"
 }
