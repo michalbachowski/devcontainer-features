@@ -1,7 +1,7 @@
 
 # git-commit-signing (git-commit-signing)
 
-Sets up local git to sign & verify commits
+Sets up container's git to sign & verify commits (will use --system not to interfere with local- or user-config).
 
 ## Example Usage
 
