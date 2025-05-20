@@ -27,10 +27,14 @@ Note that if you decide to mount the certificate, the effects will be visible af
 
 The feature installs the [detect-secrets](https://github.com/Yelp/detect-secrets) module via pipx.
 
+## [gh-cli-cache](./src/gh-cli-cache/)
+
+Sets up a common, persistent volume to store the `gh` tool config and credentials.
+
 ## [git-commit-signing](./src/git-commit-signing/)
 
 Sets local git repository to sign & verify commits.
-Does NOT 
+Does NOT generate keys. Does NOT interfere with config outside the container.
 
 ## [just-completion](./src/just-completion/)
 

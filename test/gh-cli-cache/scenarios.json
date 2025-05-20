@@ -1,0 +1,9 @@
+{
+    "non-root-user": {
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "remoteUser": "testuser",
+        "features": {
+            "gh-cli-cache": {}
+        }
+    }
+}

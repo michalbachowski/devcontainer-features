@@ -18,6 +18,7 @@ jobs:
           - bash-sensible
           - custom-ca-cert
           - detect-secrets
+          - gh-cli-cache
           - git-commit-signing
           - pre-commit-cache
           - sbt-cache
@@ -51,6 +52,7 @@ jobs:
           - custom-ca-cert
           - detect-secrets
           - git-commit-signing
+          - gh-cli-cache
           - pre-commit-cache
           - sbt-cache
           - scalafmt-native
@@ -83,6 +85,7 @@ jobs:
           - custom-ca-cert
           - detect-secrets
           - git-commit-signing
+          - gh-cli-cache
           - just-completion
           - pre-commit-cache
           - pre-commit-initialize
