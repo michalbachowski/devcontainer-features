@@ -26,7 +26,7 @@ function error_footer
 
 if ! command -v pre-commit; then
     error_header pre-commit
-    echo "- ghcr.io/devcontainers-contrib/features/pre-commit",
+    echo "- ghcr.io/devcontainers-extra/features/pre-commit",
     echo "- ghcr.io/gvatsal60/dev-container-features/pre-commit",
     echo "- ghcr.io/prulloac/devcontainer-features/pre-commit"
     error_footer

@@ -1,12 +1,12 @@
 {
-    "devcontainers-contrib": {
+    "devcontainers-extra": {
         "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
         "onCreateCommand": "git init . && chown root . && git config --global --add safe.directory $(pwd) && echo 'repos: []' > .pre-commit-config.yaml",
         "containerEnv": {
             "SSL_CERT_FILE": ""
         },
         "features": {
-            "ghcr.io/devcontainers-contrib/features/pre-commit": {},
+            "ghcr.io/devcontainers-extra/features/pre-commit": {},
             "pre-commit-initialize": {}
         }
     }

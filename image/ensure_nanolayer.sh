@@ -1,14 +1,14 @@
 #
-# SOURCE: https://github.com/devcontainers-contrib/features
+# SOURCE: https://github.com/devcontainers-extra/features
 #
 
 clean_download() {
     # The purpose of this function is to download a file with minimal impact on container layer size
-    # this means if no valid downloader is found (curl or wget) then we install a downloader (currently wget) in a 
-    # temporary manner, and making sure to 
+    # this means if no valid downloader is found (curl or wget) then we install a downloader (currently wget) in a
+    # temporary manner, and making sure to
     # 1. uninstall the downloader at the return of the function
     # 2. revert back any changes to the package installer database/cache (for example apt-get lists)
-    # The above steps will minimize the leftovers being created while installing the downloader 
+    # The above steps will minimize the leftovers being created while installing the downloader
     # Supported distros:
     #  debian/ubuntu/alpine
 
@@ -20,8 +20,8 @@ clean_download() {
     _apt_get_install() {
         tempdir=$1
 
-        # copy current state of apt list - in order to revert back later (minimize contianer layer size) 
-        cp -p -R /var/lib/apt/lists $tempdir 
+        # copy current state of apt list - in order to revert back later (minimize contianer layer size)
+        cp -p -R /var/lib/apt/lists $tempdir
         apt-get update -y
         apt-get -y install --no-install-recommends wget ca-certificates
     }
@@ -39,8 +39,8 @@ clean_download() {
 
     _apk_install() {
         tempdir=$1
-        # copy current state of apk cache - in order to revert back later (minimize contianer layer size) 
-        cp -p -R /var/cache/apk $tempdir 
+        # copy current state of apk cache - in order to revert back later (minimize contianer layer size)
+        cp -p -R /var/cache/apk $tempdir
 
         apk add --no-cache  wget
     }
@@ -49,7 +49,7 @@ clean_download() {
         tempdir=$1
 
         echo "removing wget"
-        apk del wget 
+        apk del wget
     }
     # try to use either wget or curl if one of them already installer
     if type curl >/dev/null 2>&1; then
@@ -77,7 +77,7 @@ clean_download() {
     if [ $downloader = "wget" ] ; then
         wget -q $url -O $output_location
     else
-        curl -sfL $url -o $output_location 
+        curl -sfL $url -o $output_location
     fi
 
     # NOTE: the cleanup procedure was not implemented using `trap X RETURN` only because
@@ -91,7 +91,7 @@ clean_download() {
             echo "distro not supported"
             exit 1
         fi
-    fi 
+    fi
 
 }
 
@@ -130,7 +130,7 @@ ensure_nanolayer() {
 
     fi
 
-    # If not previuse installation found, download it temporarly and delete at the end of the script 
+    # If not previuse installation found, download it temporarly and delete at the end of the script
     if [ -z "${__nanolayer_location}" ]; then
 
         if [ "$(uname -sm)" = 'Linux x86_64' ] || [ "$(uname -sm)" = "Linux aarch64" ]; then
@@ -143,7 +143,7 @@ ensure_nanolayer() {
             }
             trap clean_up EXIT
 
-            
+
             if [ -x "/sbin/apk" ] ; then
                 clib_type=musl
             else
@@ -153,12 +153,12 @@ ensure_nanolayer() {
             tar_filename=nanolayer-"$(uname -m)"-unknown-linux-$clib_type.tgz
 
             # clean download will minimize leftover in case a downloaderlike wget or curl need to be installed
-            clean_download https://github.com/devcontainers-contrib/cli/releases/download/$required_version/$tar_filename $tmp_dir/$tar_filename
-            
+            clean_download https://github.com/devcontainers-extra/nanolayer/releases/download/$required_version/$tar_filename $tmp_dir/$tar_filename
+
             tar xfzv $tmp_dir/$tar_filename -C "$tmp_dir"
             chmod a+x $tmp_dir/nanolayer
             __nanolayer_location=$tmp_dir/nanolayer
-      
+
 
         else
             echo "No binaries compiled for non-x86-linux architectures yet: $(uname -m)"

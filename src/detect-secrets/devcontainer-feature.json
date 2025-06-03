@@ -1,7 +1,7 @@
 {
     "name": "detect-secrets (via pipx)",
     "id": "detect-secrets",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "[detect-secrets](https://github.com/Yelp/detect-secrets) is module for detecting secrets within a code base.",
     "options": {
         "version": {

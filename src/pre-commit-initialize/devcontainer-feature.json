@@ -1,13 +1,13 @@
 {
     "name": "Run pre-commit initialize",
     "id": "pre-commit-initialize",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Calls [pre-commit install] during postCreateCommand.",
     "postCreateCommand": "pre-commit install --install-hooks --overwrite --allow-missing-config",
     "installsAfter": [
         "ghcr.io/cirolosapio/devcontainers-features/alpine-git",
         "ghcr.io/devcontainers/features/git",
-        "ghcr.io/devcontainers-contrib/features/pre-commit",
+        "ghcr.io/devcontainers-extra/features/pre-commit",
         "ghcr.io/gvatsal60/dev-container-features/pre-commit",
         "ghcr.io/prulloac/devcontainer-features/pre-commit"
     ],
