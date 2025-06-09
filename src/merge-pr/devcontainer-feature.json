@@ -1,0 +1,20 @@
+{
+    "id": "merge-pr",
+    "description": "Installs the [merge-pr](https://github.com/wireapp/merge-pr) tool by downloading artifact from GitHub",
+    "containerEnv": {
+        "CARGO_HOME": "/devcontainer-feature/michalbachowski/cargo-home",
+		"PATH": "/devcontainer-feature/michalbachowski/cargo-home/bin:${PATH}"
+	},
+    "installsAfter": [
+        "ghcr.io/devcontainers-extra/features/apt-get-packages"
+    ],
+    "name": "merge-pr (via merge-pr-installer)",
+    "options": {
+        "version": {
+            "default": "latest",
+            "description": "Select the version to install. The version must have artifact for your platform pre-built.",
+            "type": "string"
+        }
+    },
+    "version": "0.0.1"
+}
