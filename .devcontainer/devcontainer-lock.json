@@ -15,6 +15,16 @@
       "resolved": "ghcr.io/devcontainers/features/docker-in-docker@sha256:5f3e2005aad161ce3ff7700b2603f11935348c039f9166960efd050d69cd3014",
       "integrity": "sha256:5f3e2005aad161ce3ff7700b2603f11935348c039f9166960efd050d69cd3014"
     },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "1.0.14",
+      "resolved": "ghcr.io/devcontainers/features/github-cli@sha256:ca677566507c4118e4368cd76a4800807e911e5e350cc3525fb67ebc9132dfa1",
+      "integrity": "sha256:ca677566507c4118e4368cd76a4800807e911e5e350cc3525fb67ebc9132dfa1"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "1.6.2",
+      "resolved": "ghcr.io/devcontainers/features/node@sha256:36c03732c3421f11de7a3eefc7e9a7fb3df123cb2e48b115d61fdfe8994911d9",
+      "integrity": "sha256:36c03732c3421f11de7a3eefc7e9a7fb3df123cb2e48b115d61fdfe8994911d9"
+    },
     "ghcr.io/eliises/devcontainer-features/devcontainers-cli:1": {
       "version": "1.0.0",
       "resolved": "ghcr.io/eliises/devcontainer-features/devcontainers-cli@sha256:a4e321fcd89ea7fe6b1eea98e98f5ccc47d4be525fcfa4299cccf2c6aafefa21",
@@ -24,6 +34,11 @@
       "version": "0.1.0",
       "resolved": "ghcr.io/guiyomh/features/just@sha256:8311dff976bd153a54a879021353a7e149963e580022b25af49c45cfc5f13bec",
       "integrity": "sha256:8311dff976bd153a54a879021353a7e149963e580022b25af49c45cfc5f13bec"
+    },
+    "ghcr.io/michalbachowski/devcontainer-features/merge-pr:0.0.1": {
+      "version": "0.0.1",
+      "resolved": "ghcr.io/michalbachowski/devcontainer-features/merge-pr@sha256:64eed580a54f7c3f8ff05ecb25cb6b1a92f901773377fcbb3001e3a07ddd4868",
+      "integrity": "sha256:64eed580a54f7c3f8ff05ecb25cb6b1a92f901773377fcbb3001e3a07ddd4868"
     },
     "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {
       "version": "0.0.3",
