@@ -87,6 +87,7 @@ jobs:
           - git-commit-signing
           - gh-cli-cache
           - just-completion
+          - merge-pr
           - pre-commit-cache
           - pre-commit-initialize
           - sbt-cache

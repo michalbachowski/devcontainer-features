@@ -1,0 +1,35 @@
+{
+    "defaults": {
+        "features": {
+            "ghcr.io/devcontainers-extra/features/apt-get-packages": {
+                "packages": "xz-utils",
+                "preserve_apt_list": false
+            },
+            "merge-pr": {}
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
+    },
+    "non-root-user": {
+        "features": {
+            "ghcr.io/devcontainers-extra/features/apt-get-packages": {
+                "packages": "xz-utils",
+                "preserve_apt_list": false
+            },
+            "merge-pr": {}
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "remoteUser": "testuser"
+    },
+    "non-default-version": {
+        "features": {
+            "ghcr.io/devcontainers-extra/features/apt-get-packages": {
+                "packages": "xz-utils",
+                "preserve_apt_list": false
+            },
+            "merge-pr": {
+                "version": "v0.3.1"
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
+    }
+}
