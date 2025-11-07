@@ -1,0 +1,47 @@
+{
+    "defaults": {
+        "features": {
+            "openshift-oc": {}
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
+    },
+    "latest-version": {
+        "features": {
+            "openshift-oc": {
+                "version": "latest"
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
+    },
+    "non-root-user": {
+        "features": {
+            "openshift-oc": {}
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "remoteUser": "testuser"
+    },
+    "non-default-version": {
+        "features": {
+            "openshift-oc": {
+                "version": "4.16.0"
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
+    },
+    "stable-version": {
+        "features": {
+            "openshift-oc": {
+                "version": "stable"
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
+    },
+    "v3-version": {
+        "features": {
+            "openshift-oc": {
+                "version": "3.10.14"
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
+    }
+}

@@ -20,6 +20,7 @@ jobs:
           - detect-secrets
           - gh-cli-cache
           - git-commit-signing
+          - openshift-oc
           - pre-commit-cache
           - sbt-cache
           - scalafmt-native
@@ -53,6 +54,7 @@ jobs:
           - detect-secrets
           - git-commit-signing
           - gh-cli-cache
+          - openshift-oc
           - pre-commit-cache
           - sbt-cache
           - scalafmt-native
@@ -88,6 +90,7 @@ jobs:
           - gh-cli-cache
           - just-completion
           - merge-pr
+          - openshift-oc
           - pre-commit-cache
           - pre-commit-initialize
           - sbt-cache

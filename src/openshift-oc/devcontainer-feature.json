@@ -1,0 +1,16 @@
+{
+    "id": "openshift-oc",
+    "description": "Installs the Openshift's oc tool by downloading artifact from openshift.com",
+    "containerEnv": {
+		"PATH": "/devcontainer-feature/michalbachowski/openshift-oc/:${PATH}"
+	},
+    "name": "openshift-oc (via cUrl from openshift.com)",
+    "options": {
+        "version": {
+            "default": "4.17.0",
+            "description": "Select the version to install. The version must have artifact for your platform pre-built. You can use both [latest] and [stable] as a value.",
+            "type": "string"
+        }
+    },
+    "version": "0.0.1"
+}
