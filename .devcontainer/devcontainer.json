@@ -19,14 +19,14 @@
         }
     },
     "features": {
-        "ghcr.io/devcontainers/features/common-utils:2.5.2": {
+        "ghcr.io/devcontainers/features/common-utils:2.5.7": {
 			"configureZshAsDefaultShell": true,
 			"installOhMyZshConfig": true
 		},
-        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-        "ghcr.io/devcontainers/features/github-cli:1": {},
-		"ghcr.io/devcontainers/features/node:1": {},
-		"ghcr.io/devcontainers-extra/features/zsh-plugins:0.0.4": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2.16.1": {},
+        "ghcr.io/devcontainers/features/github-cli:1.1.0": {},
+		"ghcr.io/devcontainers/features/node:1.7.1": {},
+		"ghcr.io/devcontainers-extra/features/zsh-plugins:0.0.5": {
 			"plugins": "colorize zsh-autosuggestions zsh-syntax-highlighting",
 			"omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting.git"
 		},
@@ -35,7 +35,7 @@
             "version": "1.38.0"
         },
 		"ghcr.io/michalbachowski/devcontainer-features/merge-pr:0.0.1": {},
-        "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
+        "ghcr.io/stuartleeks/dev-container-features/shell-history:0.0.6": {}
     },
     "image": "mcr.microsoft.com/devcontainers/base:noble",
     "mounts": [
