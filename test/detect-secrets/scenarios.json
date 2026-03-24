@@ -6,5 +6,13 @@
                 "version": "1.4.0"
             }
         }
+    },
+    "non-root-user": {
+        "features": {
+            "detect-secrets": {
+            }
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "remoteUser": "testuser"
     }
 }
