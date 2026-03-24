@@ -71,12 +71,12 @@ function test_binary_feature
     check "Sanity: running as the [$user] user" bash -c "test \"\$(whoami)\" = \"$user\" || exit 1"
 
     check "binary exists" bash -c "test -f $script_path"
-    check "binary executable" bash -c "test -x $script_path"
+    check "binary is executable" bash -c "test -x $script_path"
     check "binary is owned by [root]" bash -c 'test "$(stat -c "%U" "'$script_path'")" = "root" || exit 1'
     check "binary is available on PATH" bash -c "command -v $script_name >/dev/null || exit 1"
 
     if [ -n "${script_version}" ]; then
-        check "binary is in correct version" bash -c "$script_name ${version_command} | grep $script_version"
+        check "binary is in the [${script_version}] version" bash -c "$script_name ${version_command} | tee /dev/stderr | grep $script_version"
     else
         echo "Version not given, skipping version validation"
     fi
