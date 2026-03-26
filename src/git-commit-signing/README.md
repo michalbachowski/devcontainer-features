@@ -20,6 +20,7 @@ Sets up container's git to sign & verify commits (will use --system not to inter
 | key_format | Format o signing key. | string | ssh |
 | signing_key | Path to signing key (SSH, GPG) or ID of the x509 key kept in smimesign. Will be put as-is to git configuration. See: https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key#telling-git-about-your-x509-key-1 | string | ~/.ssh/id_ed25519.pub |
 
+Does NOT generate keys. Does NOT interfere with config outside the container.
 
 
 ---

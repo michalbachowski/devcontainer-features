@@ -17,6 +17,8 @@ Installs scalafmt-native by downloading artifact from GitHub
 |-----|-----|-----|-----|
 | version | Select the version to install (skip the 'v' prefix!). | string | 3.8.3 |
 
+Installs the [scalafmt-native](https://scalameta.org/scalafmt/docs/installation.html#native-image) (pre-built GraalVm image).
+Requires `curl` installed.
 
 
 ---
