@@ -14,6 +14,8 @@ Some small features to avoid duplication on my daily work.
 | [gh-cli-cache](./src/gh-cli-cache/) | Sets up a common, persistent volume to store the `gh` tool config and credentials. |
 | [git-commit-signing](./src/git-commit-signing/) | Sets local git repository to sign & verify commits. |
 | [just-completion](./src/just-completion/) | Installs Bash and/or Zsh completion for the [`just`](https://just.systems/) tool. |
+| [merge-pr](./src/merge-pr/) | Installs the [`merge-pr`](https://github.com/wireapp/merge-pr) tool. |
+| [openshift-oc](./src/openshift-oc/) | Installs the [`oc`](https://docs.redhat.com/en/documentation/openshift_container_platform/4.11/html/cli_tools/openshift-cli-oc) CLI to work with RedHat's `OpenShift`. |
 | [pre-commit-cache](./src/pre-commit-cache/) | Sets up a common, persistent volume for [`pre-commit`](https://pre-commit.com) cache. |
 | [pre-commit-initialize](./src/pre-commit-initialize/) | Initializes the [`pre-commit`](https://pre-commit.com) hooks for the workspace folder. |
 | [sbt-cache](./src/sbt-cache/) | Sets up a common, persistent volume for `sbt` / `coursier` packages. |
