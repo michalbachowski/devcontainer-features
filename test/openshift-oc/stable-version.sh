@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="4.20.1"
+VERSION="4.21.6"
 source _common_tests.sh
 
 # Report results
