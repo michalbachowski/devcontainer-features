@@ -17,6 +17,7 @@ Installs snyk-cli by downloading artifact from GitHub
 |-----|-----|-----|-----|
 | version | Select the version to install. | string | v1.1294.0 |
 
+Requires `curl` installed.
 
 
 ---

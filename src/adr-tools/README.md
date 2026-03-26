@@ -17,6 +17,7 @@ Installs adr-tools by downloading artifact from GitHub
 |-----|-----|-----|-----|
 | version | Select the version to install. | string | 3.0.0 |
 
+Installs the [adr-tools](https://github.com/npryce/adr-tools/) binary.
 
 
 ---
