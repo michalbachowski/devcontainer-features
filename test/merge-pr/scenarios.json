@@ -9,17 +9,6 @@
         },
         "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
     },
-    "non-root-user": {
-        "features": {
-            "ghcr.io/devcontainers-extra/features/apt-get-packages": {
-                "packages": "xz-utils",
-                "preserve_apt_list": false
-            },
-            "merge-pr": {}
-        },
-        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
-        "remoteUser": "testuser"
-    },
     "non-default-version": {
         "features": {
             "ghcr.io/devcontainers-extra/features/apt-get-packages": {
@@ -31,5 +20,41 @@
             }
         },
         "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
+    },
+    "non-root-user": {
+        "features": {
+            "ghcr.io/devcontainers-extra/features/apt-get-packages": {
+                "packages": "xz-utils",
+                "preserve_apt_list": false
+            },
+            "merge-pr": {}
+        },
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "remoteUser": "testuser"
+    },
+    "rust-preinstalled-from-feature": {
+        "features": {
+            "local-cert": {},
+            "ghcr.io/devcontainers/features/rust": {},
+            "ghcr.io/devcontainers-extra/features/apt-get-packages": {
+                "packages": "xz-utils",
+                "preserve_apt_list": false
+            },
+            "merge-pr": {}
+        },
+        "overrideFeatureInstallOrder": [
+            "./local-cert"
+        ],
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
+    },
+    "image-with-rust-preinstalled": {
+        "features": {
+            "ghcr.io/devcontainers-extra/features/apt-get-packages": {
+                "packages": "curl xz-utils",
+                "preserve_apt_list": false
+            },
+            "merge-pr": {}
+        },
+        "image": "rust:1.94.1-slim-trixie"
     }
 }
