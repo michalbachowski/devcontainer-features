@@ -19,6 +19,7 @@
         }
     },
     "features": {
+        "./local-cert": {},
         "ghcr.io/devcontainers/features/common-utils:2.5.7": {
 			"configureZshAsDefaultShell": true,
 			"installOhMyZshConfig": true

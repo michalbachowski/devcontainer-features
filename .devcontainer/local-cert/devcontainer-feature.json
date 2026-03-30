@@ -1,0 +1,5 @@
+{
+    "id": "local-cert",
+    "name": "Adds local files CA Cert (if present) to DevContainer",
+    "version": "0.0.1"
+}
