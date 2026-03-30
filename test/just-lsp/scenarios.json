@@ -1,0 +1,47 @@
+{
+    "defaults": {
+        "features": {
+            "local-cert": {},
+            "ghcr.io/devcontainers/features/rust": {},
+            "just-lsp": {}
+        },
+        "overrideFeatureInstallOrder": [
+            "./local-cert"
+        ],
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
+    },
+    "non-root-user": {
+        "features": {
+            "local-cert": {},
+            "ghcr.io/devcontainers/features/rust": {},
+            "just-lsp": {}
+        },
+        "overrideFeatureInstallOrder": [
+            "./local-cert"
+        ],
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3",
+        "remoteUser": "testuser"
+    },
+    "non-default-version": {
+        "features": {
+            "local-cert": {},
+            "ghcr.io/devcontainers/features/rust": {},
+            "just-lsp": {
+                "version": "0.3.0"
+            }
+        },
+        "overrideFeatureInstallOrder": [
+            "./local-cert"
+        ],
+        "image": "bachowskimichal/devcontainer-test-ubuntu:v3"
+    },
+    "image-with-rust-preinstalled": {
+        "features": {
+            "just-lsp": {}
+        },
+        "overrideFeatureInstallOrder": [
+            "./local-cert"
+        ],
+        "image": "rust:1.94.1-slim-trixie"
+    }
+}

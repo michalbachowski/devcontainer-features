@@ -1,0 +1,16 @@
+{
+    "id": "just-lsp",
+    "description": "Installs the [just-lsp] language server protocol provider for the [just] command runner.",
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/rust"
+    ],
+    "name": "just-lsp",
+    "options": {
+        "version": {
+            "default": "0.4.0",
+            "description": "Select the version to install.",
+            "type": "string"
+        }
+    },
+    "version": "0.0.1"
+}

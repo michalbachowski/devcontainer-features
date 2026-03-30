@@ -89,6 +89,7 @@ jobs:
           - git-commit-signing
           - gh-cli-cache
           - just-completion
+          - just-lsp
           - merge-pr
           - openshift-oc
           - pre-commit-cache
