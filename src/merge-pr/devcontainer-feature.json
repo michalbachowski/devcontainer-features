@@ -1,11 +1,13 @@
 {
     "id": "merge-pr",
-    "description": "Installs the [merge-pr](https://github.com/wireapp/merge-pr) tool by downloading artifact from GitHub",
     "containerEnv": {
-        "CARGO_HOME": "/devcontainer-feature/michalbachowski/cargo-home",
-		"PATH": "/devcontainer-feature/michalbachowski/cargo-home/bin:${PATH}"
-	},
+        "CARGO_HOME": "/usr/local/cargo",
+        "RUSTUP_HOME": "/usr/local/rustup",
+        "PATH": "/usr/local/cargo/bin:${PATH}"
+    },
+    "description": "Installs the [merge-pr](https://github.com/wireapp/merge-pr) tool by downloading artifact from GitHub",
     "installsAfter": [
+        "ghcr.io/devcontainers/features/rust",
         "ghcr.io/devcontainers-extra/features/apt-get-packages"
     ],
     "name": "merge-pr (via merge-pr-installer)",
@@ -16,5 +18,5 @@
             "type": "string"
         }
     },
-    "version": "0.0.1"
+    "version": "0.0.2"
 }
